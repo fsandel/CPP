@@ -6,29 +6,14 @@
 /*   By: fsandel <fsandel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/17 17:13:30 by fsandel           #+#    #+#             */
-/*   Updated: 2023/03/13 08:40:33 by fsandel          ###   ########.fr       */
+/*   Updated: 2023/03/17 14:58:46 by fsandel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "phonebook.h"
+#include "PhoneBook.hpp"
 
-void	exit_message(void)
-{
-	std::cout << "You are now leaving 'My Awesome PhoneBook'\n";
-}
-
-std::string	turn_upper(std::string input)
-{
-	unsigned long	i;
-
-	i = 0;
-	while (i < input.size())
-	{
-		input.at(i) = std::toupper(input.at(i));
-		i++;
-	}
-	return (input);
-}
+static void	exit_message(void);
+static std::string	turn_upper(std::string input);
 
 int	main(void)
 {
@@ -55,4 +40,22 @@ int	main(void)
 			std::cout << "command doesnt exist, use 'EXIT', 'ADD' or 'SEARCH'" << "\n";
 	}
 	return (0);
+}
+
+static void	exit_message(void)
+{
+	std::cout << "You are now leaving 'My Awesome PhoneBook'" << std::endl;
+}
+
+static std::string	turn_upper(std::string input)
+{
+	unsigned long	i;
+
+	i = 0;
+	while (i < input.size())
+	{
+		input.at(i) = std::toupper(input.at(i));
+		i++;
+	}
+	return (input);
 }

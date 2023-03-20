@@ -6,21 +6,19 @@
 /*   By: fsandel <fsandel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/17 15:54:44 by fsandel           #+#    #+#             */
-/*   Updated: 2023/03/08 17:29:33 by fsandel          ###   ########.fr       */
+/*   Updated: 2023/03/17 09:54:47 by fsandel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
 
-std::string	make_loud(std::string argument)
+static std::string	make_loud(std::string argument)
 {
 	unsigned long	i;
 
 	i = 0;
-	while (i < argument.size())
-	{
-		if (argument.at(i) >= 'a' && argument.at(i) <= 'z')
-			argument.at(i) += 'A' - 'a';
+	while (i < argument.size()){
+		argument.at(i)= std::toupper(argument.at(i));
 		i++;
 	}
 	return (argument);
