@@ -6,10 +6,9 @@
 /*   By: fsandel <fsandel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/15 08:30:51 by fsandel           #+#    #+#             */
-/*   Updated: 2023/03/15 10:53:04 by fsandel          ###   ########.fr       */
+/*   Updated: 2023/03/29 13:29:27 by fsandel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
 
 #include "ClapTrap.hpp"
 
@@ -29,7 +28,7 @@ ClapTrap::ClapTrap(std::string name):_Name(name)
 	this->_HitPoints = 10;
 }
 
-ClapTrap::ClapTrap(ClapTrap &obj)
+ClapTrap::ClapTrap(ClapTrap const &obj)
 {
 	std::cout << "Copy constructor got called" << std::endl;
 	*this = obj;

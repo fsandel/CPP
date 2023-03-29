@@ -6,12 +6,13 @@
 /*   By: fsandel <fsandel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/15 09:39:11 by fsandel           #+#    #+#             */
-/*   Updated: 2023/03/15 12:23:02 by fsandel          ###   ########.fr       */
+/*   Updated: 2023/03/29 16:04:06 by fsandel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "FragTrap.hpp"
-#include "ClapTrap.hpp"
+
+class ClapTrap;
 
 FragTrap::FragTrap(): ClapTrap()
 {
@@ -44,7 +45,7 @@ FragTrap& FragTrap::operator=(const FragTrap&obj)
 	return (*this);
 }
 
-FragTrap::FragTrap(FragTrap &obj)
+FragTrap::FragTrap(FragTrap const &obj):ClapTrap(obj)
 {
 	std::cout << "FragTrap copy constructor got called" << std::endl;
 	*this = obj;

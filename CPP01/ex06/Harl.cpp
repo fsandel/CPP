@@ -6,7 +6,7 @@
 /*   By: fsandel <fsandel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/25 18:52:11 by fsandel           #+#    #+#             */
-/*   Updated: 2023/03/14 11:14:46 by fsandel          ###   ########.fr       */
+/*   Updated: 2023/03/28 11:02:24 by fsandel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,34 +50,55 @@ void	Harl::error(void)
 	std::cout << "\n";
 }
 
+int	getCase(std::string level)
+{
+	int	i = 0;
+	std::string cases[] = {"DEBUG", "INFO", "WARNING", "ERROR"};
+
+	while (i < 4)
+	{
+		if (level == cases[i])
+			return (i);
+		i++;
+	}
+	return (4);
+}
+
 void Harl::complain( std::string level )
 {
 	enum cases {DEBUG, INFO, WARNING, ERROR};
-	cases here;
-	if (level == "DEBUG")
-		here = DEBUG;
-	else if (level == "INFO")
-		here = INFO;
-	else if (level == "WARNING")
-		here = WARNING;
-	else if (level == "ERROR")
-		here = ERROR;
-	else
-	{
-		std::cout << "[ Probably complaining about insignificant problems ]" << "\n";
-		return ;
-	}
-	switch (here)
+	switch (getCase(level))
 	{
 		case DEBUG:
+		{
 			this->Harl::debug();
-		case INFO:
 			this->Harl::info();
-		case WARNING:
 			this->Harl::warning();
-		case ERROR:
 			this->Harl::error();
-		default:
 			break ;
+		}
+		case INFO:
+		{
+			this->Harl::info();
+			this->Harl::warning();
+			this->Harl::error();
+			break ;
+		}
+		case WARNING:
+		{
+			this->Harl::warning();
+			this->Harl::error();
+			break ;
+		}
+		case ERROR:
+		{
+			this->Harl::error();
+			break ;
+		}
+		default:
+		{
+			std::cout << "[ Probably complaining about insignificant problems ]" << "\n";
+			break ;
+		}
 	}
 }

@@ -6,11 +6,14 @@
 /*   By: fsandel <fsandel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/15 09:39:03 by fsandel           #+#    #+#             */
-/*   Updated: 2023/03/15 13:24:25 by fsandel          ###   ########.fr       */
+/*   Updated: 2023/03/29 16:04:13 by fsandel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #pragma once
+
+#include <iostream>
+
 #include "ClapTrap.hpp"
 
 class FragTrap: virtual public ClapTrap
@@ -19,10 +22,10 @@ class FragTrap: virtual public ClapTrap
 		FragTrap();
 		FragTrap(std::string name);
 		~FragTrap();
-		FragTrap(FragTrap &obj);
+		FragTrap(FragTrap const &obj);
 		FragTrap& operator=(const FragTrap& obj);
 
-		void highFivesGuys();
+		void	highFivesGuys();
 	private:
 
 };

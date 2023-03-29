@@ -1,0 +1,35 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   Dog.cpp                                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: fsandel <fsandel@student.42.fr>            +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/03/16 10:47:35 by fsandel           #+#    #+#             */
+/*   Updated: 2023/03/16 11:11:41 by fsandel          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "Dog.hpp"
+
+Dog::Dog():Animal()
+{
+	print("Dog constructor", RED);
+	this->type = "Dog";
+}
+
+Dog::~Dog()
+{
+	print("Dog destructor", RED);
+}
+
+Dog& Dog::operator=(const Dog&obj)
+{
+	this->type = obj.type;
+	return (*this);
+}
+
+Dog::Dog(Dog &obj)
+{
+	*this = obj;
+}

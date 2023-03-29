@@ -6,7 +6,7 @@
 /*   By: fsandel <fsandel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/15 08:30:05 by fsandel           #+#    #+#             */
-/*   Updated: 2023/03/15 09:31:51 by fsandel          ###   ########.fr       */
+/*   Updated: 2023/03/29 14:38:41 by fsandel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,7 @@ int	main(void)
 	int	i = 0;
 	while (i++ < 15)
 		CP2.attack("John");
+	CP2.beRepaired(2);
 	CP1.takeDamage(0);
 
 	CP1.takeDamage(0);

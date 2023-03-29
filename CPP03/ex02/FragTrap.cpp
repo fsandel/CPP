@@ -6,7 +6,7 @@
 /*   By: fsandel <fsandel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/15 09:39:11 by fsandel           #+#    #+#             */
-/*   Updated: 2023/03/15 12:23:02 by fsandel          ###   ########.fr       */
+/*   Updated: 2023/03/29 16:02:38 by fsandel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,12 +44,11 @@ FragTrap& FragTrap::operator=(const FragTrap&obj)
 	return (*this);
 }
 
-FragTrap::FragTrap(FragTrap &obj)
+FragTrap::FragTrap(FragTrap const &obj):ClapTrap(obj)
 {
 	std::cout << "FragTrap copy constructor got called" << std::endl;
 	*this = obj;
 }
-
 
 void	FragTrap::highFivesGuys()
 {
