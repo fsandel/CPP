@@ -6,7 +6,7 @@
 /*   By: fsandel <fsandel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/16 10:47:30 by fsandel           #+#    #+#             */
-/*   Updated: 2023/03/17 09:42:11 by fsandel          ###   ########.fr       */
+/*   Updated: 2023/03/30 11:13:54 by fsandel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,14 +19,14 @@ class Cat: public Animal
 {
 	public:
 		Cat();
-		~Cat();
+		virtual ~Cat();
 		Cat(const Cat &obj);
 		Cat& operator=(const Cat& obj);
 
+		void	makeSound(void) const;
 		void	addIdea(std::string idea);
 		void	listIdeas(void);
-		void	makeSound(void) const;
-
+		void	printPTR(void) const;
 	private:
 		Brain*	_brain;
 };

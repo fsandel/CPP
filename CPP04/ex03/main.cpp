@@ -6,19 +6,27 @@
 /*   By: fsandel <fsandel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/17 15:42:55 by fsandel           #+#    #+#             */
-/*   Updated: 2023/03/17 18:33:24 by fsandel          ###   ########.fr       */
+/*   Updated: 2023/03/30 16:03:52 by fsandel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "interface.h"
 
-int	main(void)
+int	main_in(void)
 {
 	ICharacter* me = new Character("Frank");
-	Cure cure1;
-	AMateria *cure2 = cure1.clone();
-	std::cout << cure2->getType() << std::endl;
-	std::cout << "main running" << std::endl;
-	std::cout << me->getName() << std::endl;
+	ICharacter* nother = new Character("Someone else");
+	AMateria *cure2 = new Cure();
+	me->equip(cure2);
+	me->use(0, *nother);
+	
+	delete me;
+	delete nother;
 	return (0);
+}
+
+int	main(void)
+{
+	main_in();
+	//system("leaks a.out");
 }

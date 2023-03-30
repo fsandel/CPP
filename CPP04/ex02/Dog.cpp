@@ -6,7 +6,7 @@
 /*   By: fsandel <fsandel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/16 10:47:35 by fsandel           #+#    #+#             */
-/*   Updated: 2023/03/17 09:41:20 by fsandel          ###   ########.fr       */
+/*   Updated: 2023/03/30 11:10:35 by fsandel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,11 @@ Dog::Dog(const Dog &obj)
 	this->type = obj.type;
 }
 
+void	Dog::makeSound(void) const
+{
+	print("Dog sounds", RED);
+}
+
 void	Dog::addIdea(std::string idea)
 {
 	this->_brain->addIdea(idea);
@@ -50,7 +55,7 @@ void	Dog::listIdeas(void)
 	this->_brain->listIdeas();
 }
 
-void	Dog::makeSound(void) const
+void	Dog::printPTR(void) const
 {
-	print("Dog sounds", RED);
+	std::cout << RED << this->_brain << DEFAULT << std::endl;
 }

@@ -6,7 +6,7 @@
 /*   By: fsandel <fsandel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/16 11:09:31 by fsandel           #+#    #+#             */
-/*   Updated: 2023/03/17 09:45:27 by fsandel          ###   ########.fr       */
+/*   Updated: 2023/03/30 11:33:39 by fsandel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,15 +14,24 @@
 #include "Animal.hpp"
 #include "Dog.hpp"
 #include "Cat.hpp"
-#include "WrongAnimal.hpp"
-#include "WrongCat.hpp"
 
 int main()
 {
 	//Animal animal;
+	
 	Dog dog;
-	Cat cat;
 	dog.makeSound();
-	cat.makeSound();
-return 0;
+
+	Animal *ptr = new Dog();
+	ptr->makeSound();
+	delete ptr;
+
+	// Cat cat;
+	// cat.makeSound();
+
+	// Animal *ptr2 = new Cat();
+	// ptr2->makeSound();
+	// delete ptr2;
+	// system("leaks a.out");
+	return 0;
 }

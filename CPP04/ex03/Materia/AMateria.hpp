@@ -1,35 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   WrongWrongCat.cpp                                       :+:      :+:    :+:   */
+/*   AMateria.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fsandel <fsandel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/16 10:47:26 by fsandel           #+#    #+#             */
-/*   Updated: 2023/03/16 11:35:20 by fsandel          ###   ########.fr       */
+/*   Created: 2023/03/17 15:27:40 by fsandel           #+#    #+#             */
+/*   Updated: 2023/03/30 14:35:43 by fsandel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "WrongCat.hpp"
+#pragma once
+#include "../interface.h"
 
-WrongCat::WrongCat():WrongAnimal()
-{
-	this->type = "WrongCat";
-	print("WrongCat constructor", GREEN);
-}
+class ICharacter;
 
-WrongCat::~WrongCat()
+class AMateria
 {
-	print("WrongCat destructor", GREEN);
-}
+	public:
+		AMateria();
+		virtual ~AMateria();
+		AMateria(AMateria const &obj);
+		AMateria& operator=(const AMateria& obj);
 
-WrongCat& WrongCat::operator=(const WrongCat&obj)
-{
-	this->type = obj.type;
-	return (*this);
-}
+		std::string const & getType() const;
 
-WrongCat::WrongCat(WrongCat &obj)
-{
-	*this = obj;
-}
+		virtual AMateria* clone() const = 0;
+		virtual void use(ICharacter &target);
+	protected:
+		std::string _type;
+
+};

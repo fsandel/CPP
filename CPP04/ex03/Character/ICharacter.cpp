@@ -6,11 +6,11 @@
 /*   By: fsandel <fsandel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/17 15:46:17 by fsandel           #+#    #+#             */
-/*   Updated: 2023/03/17 17:37:46 by fsandel          ###   ########.fr       */
+/*   Updated: 2023/03/30 14:35:32 by fsandel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "interface.h"
+#include "../interface.h"
 
 ICharacter::ICharacter()
 {

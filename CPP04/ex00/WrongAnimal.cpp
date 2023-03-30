@@ -35,12 +35,7 @@ WrongAnimal::WrongAnimal(WrongAnimal &obj)
 
 void	WrongAnimal::makeSound(void) const
 {
-	if (this->type == "Dog")
-		print("Dog sounds", RED);
-	else if (this->type == "WrongCat")
-		print("WrongCat sounds", GREEN);
-	else
-		print("WrongAnimal sounds", BLUE);
+	print("WrongAnimal sounds", BLUE);
 }
 
 std::string	WrongAnimal::getType(void) const

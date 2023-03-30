@@ -6,7 +6,7 @@
 /*   By: fsandel <fsandel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/16 10:47:39 by fsandel           #+#    #+#             */
-/*   Updated: 2023/03/16 11:08:28 by fsandel          ###   ########.fr       */
+/*   Updated: 2023/03/30 11:09:51 by fsandel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,8 @@ class Dog: public Animal
 		~Dog();
 		Dog(Dog &obj);
 		Dog& operator=(const Dog& obj);
+
+		void	makeSound(void) const;
 	private:
 
 };

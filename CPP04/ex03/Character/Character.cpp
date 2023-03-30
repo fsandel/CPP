@@ -6,7 +6,7 @@
 /*   By: fsandel <fsandel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/17 17:42:51 by fsandel           #+#    #+#             */
-/*   Updated: 2023/03/17 18:37:06 by fsandel          ###   ########.fr       */
+/*   Updated: 2023/03/30 15:47:41 by fsandel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,9 @@
 
 Character::Character()
 {
+	int	i = 0;
+	while (i < 4)
+		this->slot[i++] = NULL;
 }
 
 Character::Character(std::string name)
@@ -23,17 +26,29 @@ Character::Character(std::string name)
 
 Character::~Character()
 {
+	int	i = 0;
+	while (i < 4)
+	{
+		if (this->slot[i]) 
+			delete this->slot[i];
+		i++;
+	}
 }
 
 Character& Character::operator=(const Character&obj)
 {
 	int	i = 0;
 	while (i < 4)
-		delete this->slot[i++];
+	{
+		if (this->slot[i]) 
+			delete this->slot[i];
+		i++;
+	}
 	i = 0;
 	while (i < 4)
 	{
-		this->slot[i] = obj.slot[i];
+		if (obj.slot[i])
+			this->slot[i] = obj.slot[i]->clone();
 		i++;
 	}
 	return (*this);
@@ -48,16 +63,49 @@ std::string const & Character::getName() const
 {
 	return (this->_name);
 }
+
 void Character::equip(AMateria* m)
 {
-	(void) m;
+	int	i = 0;
+	while (i < 4)
+	{
+		if (!slot[i])
+		{
+			slot[i] = m;
+			return ;
+		}
+		i++;
+	}
+
 }
+
 void Character::unequip(int idx)
 {
-	(void) idx;
+	if (idx > 3 || idx < 0)
+	{
+		std::cout << "Index is out of range" << std::endl;
+		return ;
+	}
+	if (!this->slot[idx])
+	{
+		std::cout << "There is nothing equipped in slot " << idx << std::endl;
+		return ;
+	}
+	this->slot[idx] = NULL;
+	std::cout << "Successfully unequipped " << slot[idx]->getType() << std::endl;
 }
+
 void Character::use(int idx, ICharacter& target)
 {
-	(void)idx;
-	(void)target;
+	if (idx > 3 || idx < 0)
+	{
+		std::cout << "Index is out of range" << std::endl;
+		return ;
+	}
+	if (!this->slot[idx])
+	{
+		std::cout << "There is nothing equipped in slot " << idx << std::endl;
+		return ;
+	}
+	this->slot[idx]->use(target);
 }

@@ -1,35 +1,46 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   WrongWrongCat.cpp                                       :+:      :+:    :+:   */
+/*   AMateria.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fsandel <fsandel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/16 10:47:26 by fsandel           #+#    #+#             */
-/*   Updated: 2023/03/16 11:35:20 by fsandel          ###   ########.fr       */
+/*   Created: 2023/03/17 15:27:45 by fsandel           #+#    #+#             */
+/*   Updated: 2023/03/30 14:35:41 by fsandel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "WrongCat.hpp"
+#include "../interface.h"
 
-WrongCat::WrongCat():WrongAnimal()
+AMateria::AMateria()
 {
-	this->type = "WrongCat";
-	print("WrongCat constructor", GREEN);
 }
 
-WrongCat::~WrongCat()
+AMateria::~AMateria()
 {
-	print("WrongCat destructor", GREEN);
 }
 
-WrongCat& WrongCat::operator=(const WrongCat&obj)
+AMateria& AMateria::operator=(const AMateria&obj)
 {
-	this->type = obj.type;
+	this->_type = obj._type;
 	return (*this);
 }
 
-WrongCat::WrongCat(WrongCat &obj)
+AMateria::AMateria(AMateria const &obj)
 {
 	*this = obj;
+}
+
+std::string const & AMateria::getType() const
+{
+	return (this->_type);
+}
+
+AMateria* AMateria::clone() const
+{
+	return (NULL);
+}
+void AMateria::use(ICharacter &target)
+{
+	(void)target;
 }

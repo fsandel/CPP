@@ -6,7 +6,7 @@
 #    By: fsandel <fsandel@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/08 09:53:10 by fsandel           #+#    #+#              #
-#    Updated: 2023/03/16 14:55:34 by fsandel          ###   ########.fr        #
+#    Updated: 2023/03/30 11:16:13 by fsandel          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,7 +15,7 @@ CC				=	c++
 RM				=	rm -f
 CPPFLAGS		=	-std=c++98 -Wall -Wextra -Werror
 
-SRC				=	main.cpp utils.cpp Animal.cpp Cat.cpp Dog.cpp WrongAnimal.cpp WrongCat.cpp Brain.cpp
+SRC				=	main.cpp utils.cpp Animal.cpp Cat.cpp Dog.cpp Brain.cpp
 
 OBJ				=	$(SRC:.cpp=.o)
 

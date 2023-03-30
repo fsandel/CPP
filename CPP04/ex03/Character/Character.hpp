@@ -1,33 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   AMateria.hpp                                       :+:      :+:    :+:   */
+/*   Character.hpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fsandel <fsandel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/17 15:27:40 by fsandel           #+#    #+#             */
-/*   Updated: 2023/03/17 17:01:48 by fsandel          ###   ########.fr       */
+/*   Created: 2023/03/17 17:42:55 by fsandel           #+#    #+#             */
+/*   Updated: 2023/03/30 14:35:27 by fsandel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #pragma once
-#include "interface.h"
+#include "../interface.h"
 
 class ICharacter;
 
-class AMateria
+class Character: public ICharacter
 {
 	public:
-		AMateria();
-		virtual ~AMateria();
-		AMateria(AMateria const &obj);
-		AMateria& operator=(const AMateria& obj);
+		Character();
+		Character(std::string name);
+		~Character();
+		Character(Character const &obj);
+		Character& operator=(const Character& obj);
 
-		std::string const & getType() const;
+		std::string const & getName() const;
+		void equip(AMateria* m);
+		void unequip(int idx);
+		void use(int idx, ICharacter& target);
 
-		virtual AMateria* clone() const = 0;
-		virtual void use(ICharacter &target);
-	protected:
-		std::string _type;
+	private:
 
 };

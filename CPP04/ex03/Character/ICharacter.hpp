@@ -6,14 +6,15 @@
 /*   By: fsandel <fsandel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/17 15:46:21 by fsandel           #+#    #+#             */
-/*   Updated: 2023/03/20 08:59:46 by fsandel          ###   ########.fr       */
+/*   Updated: 2023/03/30 15:19:36 by fsandel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #pragma once
-#include "interface.h"
+#include "../interface.h"
 
 class AMateria;
+
 class ICharacter
 {
 	public:

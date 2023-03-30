@@ -6,7 +6,7 @@
 /*   By: fsandel <fsandel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/16 10:47:15 by fsandel           #+#    #+#             */
-/*   Updated: 2023/03/16 13:57:57 by fsandel          ###   ########.fr       */
+/*   Updated: 2023/03/30 10:48:54 by fsandel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,12 +35,7 @@ Animal::Animal(Animal &obj)
 
 void	Animal::makeSound(void) const
 {
-	if (this->type == "Dog")
-		print("Dog sounds", RED);
-	else if (this->type == "Cat")
-		print("Cat sounds", GREEN);
-	else
-		print("Animal sounds", BLUE);
+	print("Animal sounds", BLUE);
 }
 
 std::string	Animal::getType(void) const

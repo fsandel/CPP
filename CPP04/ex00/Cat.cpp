@@ -6,7 +6,7 @@
 /*   By: fsandel <fsandel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/16 10:47:26 by fsandel           #+#    #+#             */
-/*   Updated: 2023/03/16 11:13:19 by fsandel          ###   ########.fr       */
+/*   Updated: 2023/03/30 11:09:57 by fsandel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,4 +32,9 @@ Cat& Cat::operator=(const Cat&obj)
 Cat::Cat(Cat &obj)
 {
 	*this = obj;
+}
+
+void	Cat::makeSound(void) const
+{
+	print("Cat sounds", GREEN);
 }

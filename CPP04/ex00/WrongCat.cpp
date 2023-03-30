@@ -33,3 +33,8 @@ WrongCat::WrongCat(WrongCat &obj)
 {
 	*this = obj;
 }
+
+void	WrongCat::makeSound(void) const
+{
+	print("WrongCat sounds", GREEN);
+}

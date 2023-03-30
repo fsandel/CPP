@@ -6,7 +6,7 @@
 #    By: fsandel <fsandel@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/08 09:53:10 by fsandel           #+#    #+#              #
-#    Updated: 2023/03/17 18:06:32 by fsandel          ###   ########.fr        #
+#    Updated: 2023/03/30 15:11:24 by fsandel          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,9 +15,12 @@ CC				=	c++
 RM				=	rm -f
 CPPFLAGS		=	-std=c++98 -Wall -Wextra -Werror
 
-SRC				=	main.cpp AMateria.cpp ICharacter.cpp Cure.cpp Character.cpp
+SRC				=	main.cpp Materia/AMateria.cpp Character/ICharacter.cpp Materia/Cure.cpp Character/Character.cpp
 
 OBJ				=	$(SRC:.cpp=.o)
+
+test:				all clean
+					./$(NAME)
 
 all:				$(NAME)
 				
@@ -25,15 +28,11 @@ $(NAME):			$(OBJ)
 					$(CC) $^ -o $@ $(CPPFLAGS)
 
 %.o:				%.cpp
-					$(CC) -c $< $(CPPFLAGS)
+					$(CC) -c $< -o $*.o $(CPPFLAGS)
+
 clean:
 					$(RM) $(OBJ)
 
-r:
-					make all
-					make clean
-					./$(NAME)
-					
 fclean:			
 					$(RM) $(OBJ)
 					$(RM) $(NAME)

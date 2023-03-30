@@ -6,7 +6,7 @@
 /*   By: fsandel <fsandel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/17 16:02:09 by fsandel           #+#    #+#             */
-/*   Updated: 2023/03/17 18:32:54 by fsandel          ###   ########.fr       */
+/*   Updated: 2023/03/30 14:34:35 by fsandel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,10 @@
 #define INTERFACE_H
 
 #include <iostream>
-#include "AMateria.hpp"
-#include "ICharacter.hpp"
-#include "Cure.hpp"
-#include "Character.hpp"
+
+#include "Materia/AMateria.hpp"
+#include "Character/ICharacter.hpp"
+#include "Materia/Cure.hpp"
+#include "Character/Character.hpp"
 
 #endif
