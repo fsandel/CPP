@@ -6,7 +6,7 @@
 #    By: fsandel <fsandel@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/08 09:53:10 by fsandel           #+#    #+#              #
-#    Updated: 2023/03/30 15:11:24 by fsandel          ###   ########.fr        #
+#    Updated: 2023/04/03 12:50:18 by fsandel          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,7 +15,8 @@ CC				=	c++
 RM				=	rm -f
 CPPFLAGS		=	-std=c++98 -Wall -Wextra -Werror
 
-SRC				=	main.cpp Materia/AMateria.cpp Character/ICharacter.cpp Materia/Cure.cpp Character/Character.cpp
+SRC				=	main.cpp Materia/AMateria.cpp Character/ICharacter.cpp Materia/Cure.cpp Character/Character.cpp \
+					MateriaSource/IMateriaSource.cpp MateriaSource/MateriaSource.cpp
 
 OBJ				=	$(SRC:.cpp=.o)
 
