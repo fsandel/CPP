@@ -6,7 +6,7 @@
 #    By: fsandel <fsandel@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/08 09:53:10 by fsandel           #+#    #+#              #
-#    Updated: 2023/05/17 19:02:19 by fsandel          ###   ########.fr        #
+#    Updated: 2023/05/18 00:01:59 by fsandel          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,7 +15,7 @@ CC				=	c++
 RM				=	rm -f
 CPPFLAGS		=	-std=c++98 -Wall -Wextra -Werror
 
-SRC				=	main.cpp Form.cpp ../ex00/Bureaucrat.cpp
+SRC				=	main.cpp Form.cpp Bureaucrat.cpp
 
 OBJ				=	$(SRC:.cpp=.o)
 

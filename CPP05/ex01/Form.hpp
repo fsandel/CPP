@@ -1,7 +1,9 @@
 #pragma once
 #include <string>
 #include <stdexcept>
-#include "../ex00/Bureaucrat.hpp"
+#include "Bureaucrat.hpp"
+
+class Bureaucrat;
 
 class Form
 {
@@ -37,3 +39,5 @@ class Form
 		const int			_req_grade_sign;
 		const int			_req_grade_exec;
 };
+
+std::ostream& operator<<(std::ostream& os, const Form& obj);
