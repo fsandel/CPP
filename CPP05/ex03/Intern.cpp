@@ -46,6 +46,7 @@ AForm *Intern::makeForm(std::string form_name, std::string target) const
 			return (delete_unused_forms(all_forms, i), all_forms[i]);
 		i++;
 	}
+	delete_unused_forms(all_forms, 3);
 	std::cout << "Sadly the notes of the intern were to ugly and there was no way a correct form could be created" << std::endl;
 	return (NULL);
 }
