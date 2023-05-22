@@ -7,6 +7,7 @@ Bureaucrat::Bureaucrat():_name("anonym"), _grade(75)
 
 Bureaucrat::Bureaucrat(std::string name, int grade):_name(name)
 {
+	std::cout << "Tyring to create Bureaucrat " << name << " with grade " << grade << std::endl;
 	if (grade > 150)
 		throw (Bureaucrat::GradeTooLowException());
 	else if (grade < 1)
@@ -40,6 +41,7 @@ int Bureaucrat::getGrade() const
 
 void Bureaucrat::incrementGrade(void)
 {
+	std::cout << "Trying to increment " << this->_name << " with a grade of " << this->_grade << std::endl;
 	if (this->_grade < 2)
 		throw (Bureaucrat::GradeTooHighException());
 	else
@@ -51,6 +53,7 @@ void Bureaucrat::incrementGrade(void)
 
 void Bureaucrat::decrementGrade(void)
 {
+	std::cout << "Trying to decrement " << this->_name << " with a grade of " << this->_grade << std::endl;
 	if (this->_grade > 149)
 		throw (Bureaucrat::GradeTooLowException());
 	else

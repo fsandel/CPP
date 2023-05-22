@@ -5,14 +5,14 @@
 
 class Bureaucrat;
 
-class Form
+class AForm
 {
 	public:
-		Form();
-		Form(std::string name, int req_grade_sign, int req_grade_exec);
-		~Form();
-		Form(Form const &obj);
-		Form& operator=(const Form& obj);
+		AForm();
+		AForm(std::string name, int req_grade_sign, int req_grade_exec);
+		~AForm();
+		AForm(AForm const &obj);
+		AForm& operator=(const AForm& obj);
 
 		std::string	getName(void) const;
 		bool		getSigned(void) const;
@@ -25,11 +25,11 @@ class Form
 			public:
 				virtual const char* what() const throw();
 		};
-		class GradeTooHighException: public Form::Exception{
+		class GradeTooHighException: public AForm::Exception{
 			public:
 				const char* what() const throw();
 		};
-		class GradeTooLowException: public Form::Exception{
+		class GradeTooLowException: public AForm::Exception{
 			public:
 				const char* what() const throw();
 		};
@@ -41,4 +41,4 @@ class Form
 		const int			_req_grade_exec;
 };
 
-std::ostream& operator<<(std::ostream& os, const Form& obj);
+std::ostream& operator<<(std::ostream& os, const AForm& obj);

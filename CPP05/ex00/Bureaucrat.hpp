@@ -17,17 +17,17 @@ class Bureaucrat{
 		void	incrementGrade(void);
 		void	decrementGrade(void);
 
-		class Exception: std::exception{
+		class Exception: public std::exception{
 			public:
 				virtual const char* what() const throw();
 		};
-		class GradeTooHighException: Exception{
+		class GradeTooHighException: public Bureaucrat::Exception{
 			public:
-				virtual const char* what() const throw();
+				const char* what() const throw();
 		};
-		class GradeTooLowException: Exception{
+		class GradeTooLowException: public Bureaucrat::Exception{
 			public:
-				virtual const char* what() const throw();
+				const char* what() const throw();
 		};
 	private:
 		const std::string	_name;
