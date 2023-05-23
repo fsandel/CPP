@@ -6,7 +6,7 @@
 #    By: fsandel <fsandel@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/08 09:53:10 by fsandel           #+#    #+#              #
-#    Updated: 2023/05/22 16:36:33 by fsandel          ###   ########.fr        #
+#    Updated: 2023/05/23 10:07:49 by fsandel          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -33,6 +33,7 @@ clean:
 fclean:			
 					$(RM) $(OBJ)
 					$(RM) $(NAME)
+					$(RM) *_shrubbery
 
 re:
 					make fclean

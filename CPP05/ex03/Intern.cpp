@@ -33,21 +33,35 @@ void	delete_unused_forms(AForm *all_forms[3], int i)
 
 AForm *Intern::makeForm(std::string form_name, std::string target) const
 {
-	AForm	*all_forms[3];
-	int		i = 0;
-	std::cout << "The intern is trying to create a form with the name " << form_name << " directed at " << target << std::endl;
+	int	switch_value = 0;
+	enum cases {shrubbery = 1, robotomy = 2, pardon = 4};
 
-	all_forms[0] = new ShrubberyCreationForm(target);
-	all_forms[1] = new RobotomyRequestForm(target);
-	all_forms[2] = new PresidentialPardonForm(target);
+	std::cout << "The intern is trying to create a form with the name "
+			  << form_name
+			  << " directed at "
+			  << target
+			  << std::endl;
 
-	while (i < 3){
-		if (!form_name.find(this->_forms[i]) || !this->_forms[i].find(form_name))
-			return (delete_unused_forms(all_forms, i), all_forms[i]);
-		i++;
+	switch_value += (!form_name.find(this->_forms[0])
+		|| !this->_forms[0].find(form_name)) * shrubbery;
+	switch_value += (!form_name.find(this->_forms[1])
+		|| !this->_forms[1].find(form_name)) * robotomy;
+	switch_value += (!form_name.find(this->_forms[2])
+		|| !this->_forms[2].find(form_name)) * pardon;
+
+	switch (switch_value)
+	{
+		case (shrubbery):
+			return (new ShrubberyCreationForm(target));
+		case (robotomy):
+			return (new RobotomyRequestForm(target));
+		case (pardon):
+			return (new PresidentialPardonForm(target));
 	}
-	delete_unused_forms(all_forms, 3);
-	std::cout << "Sadly the notes of the intern were to ugly and there was no way a correct form could be created" << std::endl;
+
+	std::cout << "Sadly the notes of the intern were to ugly \
+		and there was no way a correct form could be created"
+			  << std::endl;
 	return (NULL);
 }
 
