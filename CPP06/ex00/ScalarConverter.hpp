@@ -4,20 +4,19 @@
 #include <cstdlib>
 #include <iostream>
 #include <string>
+#include <cwctype>
+#include <cctype>
 
 class ScalarConverter {
  public:
   static void convert(const std::string literal);
 
  private:
-  enum Error { no_error, out_of_bounds, impossible, no_number };
 
-  static void toChar(const std::string literal);
-  static void toInt(const std::string literal);
-  static void toFloat(const std::string literal);
-  static void toDouble(const std::string literal);
-
-  static void print_error(const enum Error error);
+  static void convertChar(const std::string literal);
+  static void convertInt(const std::string literal);
+  static void convertFloat(const std::string literal);
+  static void convertDouble(const std::string literal);
 
   ScalarConverter();
   ~ScalarConverter();

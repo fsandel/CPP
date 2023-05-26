@@ -1,27 +1,39 @@
 #include "ScalarConverter.hpp"
 
+static unsigned int len_skipping_zero(const std::string literal);
+static bool str_is_num(const std::string literal);
+
 void ScalarConverter::convert(const std::string literal) {
-  toChar(literal);
-  toInt(literal);
-  toFloat(literal);
-  toDouble(literal);
+  char* end_ptr;
+  double double_value = strtod(literal.c_str(), &end_ptr);
+  if (literal.length() == 1 && !std::iswspace(literal.at(0)))
+    convertChar(literal);
+  else if (len_skipping_zero(literal) <= 10 && str_is_num(literal) &&
+           double_value >= INT32_MIN && double_value <= INT32_MAX)
+    convertInt(literal);
 }
 
-void ScalarConverter::toChar(const std::string literal) { (void)literal; }
+void ScalarConverter::convertChar(const std::string literal) {
+  std::cout << "in convertChar" << std::endl;
+  (void)literal;
+}
 
-void ScalarConverter::toInt(const std::string literal) { (void)literal; }
+void ScalarConverter::convertInt(const std::string literal) {
+  std::cout << "in convertInt" << std::endl;
 
-void ScalarConverter::toFloat(const std::string literal) { (void)literal; }
+  (void)literal;
+}
 
-void ScalarConverter::toDouble(const std::string literal) { (void)literal; }
+void ScalarConverter::convertFloat(const std::string literal) {
+  std::cout << "in convertFloat" << std::endl;
 
-void ScalarConverter::print_error(const Error error) {
-  if (error == out_of_bounds)
-    std::cout << "out_of_bouns" << std::endl;
-  else if (error == impossible)
-    std::cout << "impossible" << std::endl;
-  else if (error == no_number)
-    std::cout << "no_number" << std::endl;
+  (void)literal;
+}
+
+void ScalarConverter::convertDouble(const std::string literal) {
+  std::cout << "in convertDouble" << std::endl;
+
+  (void)literal;
 }
 
 ScalarConverter::ScalarConverter() {}
@@ -34,3 +46,18 @@ ScalarConverter& ScalarConverter::operator=(const ScalarConverter& obj) {
 }
 
 ScalarConverter::ScalarConverter(ScalarConverter const& obj) { *this = obj; }
+
+static unsigned int len_skipping_zero(const std::string literal) {
+  unsigned int i = 0;
+  while (i < literal.length() && literal.at(i) == '0') i++;
+  return (literal.length() - i);
+}
+
+static bool str_is_num(const std::string literal) {
+  unsigned int i = 0;
+  while (i < literal.length()) {
+    if (std::isdigit(literal.at(i)) == 0) return false;
+    i++;
+  }
+  return (true);
+}
