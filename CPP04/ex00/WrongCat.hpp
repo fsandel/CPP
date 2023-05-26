@@ -1,7 +1,8 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   WrongWrongCat.hpp                                       :+:      :+:    :+:   */
+/*   WrongWrongCat.hpp                                       :+:      :+:    :+:
+ */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fsandel <fsandel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -11,18 +12,17 @@
 /* ************************************************************************** */
 
 #pragma once
-#include "animal.h"
 #include "WrongAnimal.hpp"
+#include "animal.h"
 
-class WrongCat: public WrongAnimal
-{
-	public:
-		WrongCat();
-		~WrongCat();
-		WrongCat(WrongCat &obj);
-		WrongCat& operator=(const WrongCat& obj);
+class WrongCat : public WrongAnimal {
+ public:
+  WrongCat();
+  ~WrongCat();
+  WrongCat(WrongCat& obj);
+  WrongCat& operator=(const WrongCat& obj);
 
-		void	makeSound(void) const;
-	private:
+  void makeSound(void) const;
 
+ private:
 };

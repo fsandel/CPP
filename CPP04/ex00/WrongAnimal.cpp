@@ -1,7 +1,8 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   WrongAnimal.cpp                                         :+:      :+:    :+:   */
+/*   WrongAnimal.cpp                                         :+:      :+:    :+:
+ */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fsandel <fsandel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -12,33 +13,17 @@
 
 #include "WrongAnimal.hpp"
 
-WrongAnimal::WrongAnimal()
-{
-	print("WrongAnimal constructor", BLUE);
+WrongAnimal::WrongAnimal() { print("WrongAnimal constructor", BLUE); }
+
+WrongAnimal::~WrongAnimal() { print("WrongAnimal destructor", BLUE); }
+
+WrongAnimal& WrongAnimal::operator=(const WrongAnimal& obj) {
+  this->type = obj.type;
+  return (*this);
 }
 
-WrongAnimal::~WrongAnimal()
-{
-	print("WrongAnimal destructor", BLUE);
-}
+WrongAnimal::WrongAnimal(WrongAnimal& obj) { *this = obj; }
 
-WrongAnimal& WrongAnimal::operator=(const WrongAnimal&obj)
-{
-	this->type = obj.type;
-	return (*this);
-}
+void WrongAnimal::makeSound(void) const { print("WrongAnimal sounds", BLUE); }
 
-WrongAnimal::WrongAnimal(WrongAnimal &obj)
-{
-	*this = obj;
-}
-
-void	WrongAnimal::makeSound(void) const
-{
-	print("WrongAnimal sounds", BLUE);
-}
-
-std::string	WrongAnimal::getType(void) const
-{
-	return (this->type);
-}
+std::string WrongAnimal::getType(void) const { return (this->type); }

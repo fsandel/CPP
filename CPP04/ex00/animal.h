@@ -6,7 +6,7 @@
 /*   By: fsandel <fsandel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/16 10:50:18 by fsandel           #+#    #+#             */
-/*   Updated: 2023/03/16 11:10:15 by fsandel          ###   ########.fr       */
+/*   Updated: 2023/05/26 16:45:34 by fsandel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,4 +22,4 @@
 #define CYAN "\033[0;36m"
 #define GREEN "\033[32m"
 
-void	print(std::string str, std::string color);
+void print(std::string str, std::string color);

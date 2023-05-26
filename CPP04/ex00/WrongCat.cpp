@@ -1,7 +1,8 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   WrongWrongCat.cpp                                       :+:      :+:    :+:   */
+/*   WrongWrongCat.cpp                                       :+:      :+:    :+:
+ */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fsandel <fsandel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -12,29 +13,18 @@
 
 #include "WrongCat.hpp"
 
-WrongCat::WrongCat():WrongAnimal()
-{
-	this->type = "WrongCat";
-	print("WrongCat constructor", GREEN);
+WrongCat::WrongCat() : WrongAnimal() {
+  this->type = "WrongCat";
+  print("WrongCat constructor", GREEN);
 }
 
-WrongCat::~WrongCat()
-{
-	print("WrongCat destructor", GREEN);
+WrongCat::~WrongCat() { print("WrongCat destructor", GREEN); }
+
+WrongCat& WrongCat::operator=(const WrongCat& obj) {
+  this->type = obj.type;
+  return (*this);
 }
 
-WrongCat& WrongCat::operator=(const WrongCat&obj)
-{
-	this->type = obj.type;
-	return (*this);
-}
+WrongCat::WrongCat(WrongCat& obj) { *this = obj; }
 
-WrongCat::WrongCat(WrongCat &obj)
-{
-	*this = obj;
-}
-
-void	WrongCat::makeSound(void) const
-{
-	print("WrongCat sounds", GREEN);
-}
+void WrongCat::makeSound(void) const { print("WrongCat sounds", GREEN); }

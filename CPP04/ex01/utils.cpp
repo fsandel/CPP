@@ -6,13 +6,12 @@
 /*   By: fsandel <fsandel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/16 10:59:49 by fsandel           #+#    #+#             */
-/*   Updated: 2023/03/17 09:16:10 by fsandel          ###   ########.fr       */
+/*   Updated: 2023/05/26 16:47:26 by fsandel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "animal.h"
 
-void	print(std::string str, std::string color)
-{
-	std::cout << color << "  " << str << DEFAULT << std::endl;
+void print(std::string str, std::string color) {
+  std::cout << color << "  " << str << DEFAULT << std::endl;
 }

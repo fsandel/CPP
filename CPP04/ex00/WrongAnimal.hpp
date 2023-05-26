@@ -1,7 +1,8 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   WrongAnimal.hpp                                         :+:      :+:    :+:   */
+/*   WrongAnimal.hpp                                         :+:      :+:    :+:
+ */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fsandel <fsandel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -13,17 +14,16 @@
 #pragma once
 #include "animal.h"
 
-class WrongAnimal
-{
-	public:
-		WrongAnimal();
-		~WrongAnimal();
-		WrongAnimal(WrongAnimal &obj);
-		WrongAnimal& operator=(const WrongAnimal& obj);
+class WrongAnimal {
+ public:
+  WrongAnimal();
+  ~WrongAnimal();
+  WrongAnimal(WrongAnimal& obj);
+  WrongAnimal& operator=(const WrongAnimal& obj);
 
-		void	makeSound(void) const;
-		std::string	getType(void) const;
+  void makeSound(void) const;
+  std::string getType(void) const;
 
-	protected:
-		std::string type;
+ protected:
+  std::string type;
 };

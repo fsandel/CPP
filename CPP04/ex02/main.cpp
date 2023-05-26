@@ -6,32 +6,31 @@
 /*   By: fsandel <fsandel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/16 11:09:31 by fsandel           #+#    #+#             */
-/*   Updated: 2023/03/30 11:33:39 by fsandel          ###   ########.fr       */
+/*   Updated: 2023/05/26 16:47:54 by fsandel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "animal.h"
 #include "Animal.hpp"
-#include "Dog.hpp"
 #include "Cat.hpp"
+#include "Dog.hpp"
+#include "animal.h"
 
-int main()
-{
-	//Animal animal;
-	
-	Dog dog;
-	dog.makeSound();
+int main() {
+  // Animal animal;
 
-	Animal *ptr = new Dog();
-	ptr->makeSound();
-	delete ptr;
+  Dog dog;
+  dog.makeSound();
 
-	// Cat cat;
-	// cat.makeSound();
+  Animal *ptr = new Dog();
+  ptr->makeSound();
+  delete ptr;
 
-	// Animal *ptr2 = new Cat();
-	// ptr2->makeSound();
-	// delete ptr2;
-	// system("leaks a.out");
-	return 0;
+  // Cat cat;
+  // cat.makeSound();
+
+  // Animal *ptr2 = new Cat();
+  // ptr2->makeSound();
+  // delete ptr2;
+  // system("leaks a.out");
+  return 0;
 }
