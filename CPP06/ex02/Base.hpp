@@ -7,10 +7,10 @@
 class Base {
  public:
   Base();
-  ~Base();
+  virtual ~Base();
   Base(Base const& obj);
   Base& operator=(const Base& obj);
-  std::string getType(void) const;
+  virtual std::string getType(void) const;
 
  protected:
   std::string type_;
