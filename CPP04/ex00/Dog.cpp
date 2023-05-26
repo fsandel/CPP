@@ -6,7 +6,7 @@
 /*   By: fsandel <fsandel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/16 10:47:35 by fsandel           #+#    #+#             */
-/*   Updated: 2023/05/26 16:46:07 by fsandel          ###   ########.fr       */
+/*   Updated: 2023/05/26 17:08:21 by fsandel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,6 @@ Dog& Dog::operator=(const Dog& obj) {
   return (*this);
 }
 
-Dog::Dog(Dog& obj) { *this = obj; }
+Dog::Dog(Dog& obj) : Animal(obj) { *this = obj; }
 
 void Dog::makeSound(void) const { print("Dog sounds", RED); }

@@ -6,7 +6,7 @@
 /*   By: fsandel <fsandel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/25 16:48:25 by fsandel           #+#    #+#             */
-/*   Updated: 2023/05/26 16:39:45 by fsandel          ###   ########.fr       */
+/*   Updated: 2023/05/26 17:06:10 by fsandel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,7 @@ int main(int argc, char *argv[]) {
   file.close();
   std::string outname = argv[1];
   outname += ".replace";
-  file.open(outname, std::ios::out);
+  file.open(outname.c_str(), std::ios::out);
   if (!file.is_open()) {
     std::cout << argv[1] << ": file doesnt exist or can't be opened on write"
               << std::endl;

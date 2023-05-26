@@ -6,7 +6,7 @@
 /*   By: fsandel <fsandel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/16 10:47:22 by fsandel           #+#    #+#             */
-/*   Updated: 2023/05/26 16:47:03 by fsandel          ###   ########.fr       */
+/*   Updated: 2023/05/26 17:11:33 by fsandel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ class Animal {
  public:
   Animal();
   virtual ~Animal();
-  Animal(Animal& obj);
+  Animal(const Animal& obj);
   Animal& operator=(const Animal& obj);
 
   virtual void makeSound(void) const;

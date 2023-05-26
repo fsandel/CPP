@@ -6,7 +6,7 @@
 /*   By: fsandel <fsandel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/16 10:47:26 by fsandel           #+#    #+#             */
-/*   Updated: 2023/05/26 16:47:13 by fsandel          ###   ########.fr       */
+/*   Updated: 2023/05/26 17:08:40 by fsandel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ Cat& Cat::operator=(const Cat& obj) {
   return (*this);
 }
 
-Cat::Cat(const Cat& obj) {
+Cat::Cat(const Cat& obj) : Animal(obj) {
   print("Cat copy constructor", GREEN);
   this->_brain = new Brain(*(obj._brain));
   this->type = obj.type;

@@ -25,6 +25,6 @@ WrongCat& WrongCat::operator=(const WrongCat& obj) {
   return (*this);
 }
 
-WrongCat::WrongCat(WrongCat& obj) { *this = obj; }
+WrongCat::WrongCat(WrongCat& obj) : WrongAnimal(obj) { *this = obj; }
 
 void WrongCat::makeSound(void) const { print("WrongCat sounds", GREEN); }

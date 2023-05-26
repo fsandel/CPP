@@ -6,7 +6,7 @@
 /*   By: fsandel <fsandel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/16 10:47:35 by fsandel           #+#    #+#             */
-/*   Updated: 2023/05/26 16:47:18 by fsandel          ###   ########.fr       */
+/*   Updated: 2023/05/26 17:09:06 by fsandel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ Dog& Dog::operator=(const Dog& obj) {
   return (*this);
 }
 
-Dog::Dog(const Dog& obj) {
+Dog::Dog(const Dog& obj) : Animal(obj) {
   print("Dog copy constructor", RED);
   this->_brain = new Brain(*(obj._brain));
   this->type = obj.type;
