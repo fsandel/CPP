@@ -9,4 +9,4 @@ A& A::operator=(const A& obj) {
   return (*this);
 }
 
-A::A(A const& obj):Base(obj) { *this = obj; }
+A::A(A const& obj) : Base(obj) { *this = obj; }
