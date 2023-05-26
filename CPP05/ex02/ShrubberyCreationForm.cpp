@@ -30,7 +30,7 @@ void ShrubberyCreationForm::execute(Bureaucrat const &executor) const
 {
 	AForm::execute(executor);
 	std::fstream file;
-	file.open(this->_target + "_shrubbery", std::ios::out);
+	file.open((this->_target + "_shrubbery").c_str(), std::ios::out);
 	file << "\
                                                   . \n\
                                    .         ;      \n\

@@ -1,4 +1,5 @@
 #include <string>
+#include <cstdlib>
 #include "AForm.hpp"
 #include "Bureaucrat.hpp"
 #include "PresidentialPardonForm.hpp"

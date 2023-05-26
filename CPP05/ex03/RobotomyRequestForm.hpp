@@ -3,6 +3,7 @@
 #include <cmath>
 #include <ctime>
 #include "AForm.hpp"
+#include <cstdlib>
 
 class AForm;
 class RobotomyRequestForm: public AForm

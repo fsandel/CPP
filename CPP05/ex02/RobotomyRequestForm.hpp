@@ -2,6 +2,7 @@
 #include <string>
 #include <cmath>
 #include <ctime>
+#include <cstdlib>
 #include "AForm.hpp"
 
 class AForm;
