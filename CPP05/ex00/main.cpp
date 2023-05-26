@@ -1,66 +1,60 @@
-#include "Bureaucrat.hpp"
 #include <iostream>
 #include <stdexcept>
 
-int	main(void)
-{
-	try{
-		Bureaucrat hans("Hans", 0);
-		std::cout << hans;
-	}
-	catch (std::exception &e){
-		std::cout << e.what() << std::endl;
-	}
+#include "Bureaucrat.hpp"
 
-	std::cout << std::endl << std::endl;
+int main(void) {
+  try {
+    Bureaucrat hans("Hans", 0);
+    std::cout << hans;
+  } catch (std::exception &e) {
+    std::cout << e.what() << std::endl;
+  }
 
-	try{
-		Bureaucrat hans("Hans", 0);
-		std::cout << hans;
-	}
-	catch (std::exception &e){
-		std::cout << e.what() << std::endl;
-	}
+  std::cout << std::endl << std::endl;
 
-	std::cout << std::endl << std::endl;
+  try {
+    Bureaucrat hans("Hans", 0);
+    std::cout << hans;
+  } catch (std::exception &e) {
+    std::cout << e.what() << std::endl;
+  }
 
-	try{
-		Bureaucrat hans("Hans", 1);
-		std::cout << hans;
-	}
-	catch (std::exception &e){
-		std::cout << e.what() << std::endl;
-	}
+  std::cout << std::endl << std::endl;
 
-	std::cout << std::endl << std::endl;
+  try {
+    Bureaucrat hans("Hans", 1);
+    std::cout << hans;
+  } catch (std::exception &e) {
+    std::cout << e.what() << std::endl;
+  }
 
-	Bureaucrat hans("Hans", 1);
-	try{
-		hans.decrementGrade();
-	}
-	catch (std::exception &e){
-		std::cout << e.what() << std::endl;
-	}
-	std::cout << hans;
+  std::cout << std::endl << std::endl;
 
-	std::cout << std::endl << std::endl;
+  Bureaucrat hans("Hans", 1);
+  try {
+    hans.decrementGrade();
+  } catch (std::exception &e) {
+    std::cout << e.what() << std::endl;
+  }
+  std::cout << hans;
 
-	try{
-		hans.incrementGrade();
-	}
-	catch (std::exception &e){
-		std::cout << e.what() << std::endl;
-	}
+  std::cout << std::endl << std::endl;
 
-	std::cout << std::endl << std::endl;
+  try {
+    hans.incrementGrade();
+  } catch (std::exception &e) {
+    std::cout << e.what() << std::endl;
+  }
 
-	try{
-		hans.incrementGrade();
-	}
-	catch (std::exception &e){
-		std::cout << e.what() << std::endl;
-	}
-	std::cout << hans;
+  std::cout << std::endl << std::endl;
 
-	return (0);
+  try {
+    hans.incrementGrade();
+  } catch (std::exception &e) {
+    std::cout << e.what() << std::endl;
+  }
+  std::cout << hans;
+
+  return (0);
 }
