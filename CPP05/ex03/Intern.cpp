@@ -30,13 +30,16 @@ AForm *Intern::makeForm(std::string form_name, std::string target) const {
             << form_name << " directed at " << target << std::endl;
 
   switch_value +=
-      (!form_name.find(this->_forms[0]) || !this->_forms[0].find(form_name)) *
+      ((!form_name.find(this->_forms[0]) || !this->_forms[0].find(form_name)) &&
+       form_name.length() > 3) *
       shrubbery;
   switch_value +=
-      (!form_name.find(this->_forms[1]) || !this->_forms[1].find(form_name)) *
+      ((!form_name.find(this->_forms[1]) || !this->_forms[1].find(form_name)) &&
+       form_name.length() > 3) *
       robotomy;
   switch_value +=
-      (!form_name.find(this->_forms[2]) || !this->_forms[2].find(form_name)) *
+      ((!form_name.find(this->_forms[2]) || !this->_forms[2].find(form_name)) &&
+       form_name.length() > 3) *
       pardon;
 
   switch (switch_value) {
