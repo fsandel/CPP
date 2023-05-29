@@ -70,7 +70,7 @@ void ScalarConverter::convertFloat(const std::string literal) {
     std::cout << "int:\timpossible" << std::endl;
   else
     std::cout << "int:\t" << int_value << std::endl;
-  if (!fmod(float_value, 1.0f))
+  if (fmod(float_value, 1.0f) != 0.0f)
     std::cout << std::fixed << std::setprecision(1) << std::showpoint;
   std::cout << "float:\t" << float_value << "f" << std::endl;
   std::cout << "double:\t" << double_value << std::endl;
@@ -93,7 +93,7 @@ void ScalarConverter::convertDouble(const std::string literal) {
     std::cout << "int:\timpossible" << std::endl;
   else
     std::cout << "int:\t" << int_value << std::endl;
-  if (!fmod(float_value, 1.0f))
+  if (fmod(float_value, 1.0f) != 0.0f)
     std::cout << std::fixed << std::setprecision(1) << std::showpoint;
   if (double_value > __FLT_MAX__ || double_value < -__FLT_MAX__)
     std::cout << "float:\timpossible" << std::endl;

@@ -25,7 +25,7 @@ class ScalarConverter {
   static bool isFloat(const std::string literal);
   static bool isDouble(const std::string literal);
 
-  static unsigned int len_skipping_zero(const std::string literal);
+  static unsigned long len_skipping_zero(const std::string literal);
   static bool str_is_num(const std::string literal);
 
 
