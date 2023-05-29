@@ -6,16 +6,16 @@
 #    By: fsandel <fsandel@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/08 09:53:10 by fsandel           #+#    #+#              #
-#    Updated: 2023/05/25 15:31:51 by fsandel          ###   ########.fr        #
+#    Updated: 2023/05/29 16:31:54 by fsandel          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME			=	convert
 CC				=	c++
 RM				=	rm -f
-CPPFLAGS		=	-std=c++98 -Wall -Wextra -Werror
+CPPFLAGS		=	-std=c++98 -Wall -Wextra -Werror# -Wconversion
 
-SRC				=	main.cpp ScalarConverter.cpp
+SRC				=	main.cpp ScalarConverter.cpp ScalarConverterIdentity.cpp ScalarConverterIdentityUtils.cpp
 
 OBJ				=	$(SRC:.cpp=.o)
 
