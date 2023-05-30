@@ -33,6 +33,10 @@ class Form {
    public:
     const char* what() const throw();
   };
+  class AlreadySignedException : public Form::Exception {
+   public:
+    const char* what() const throw();
+  };
 
  private:
   const std::string _name;

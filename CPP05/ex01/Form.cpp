@@ -49,10 +49,9 @@ void Form::beSigned(Bureaucrat bureaucrat) {
             << " tries to get signed by " << bureaucrat.getName()
             << " with grade of " << bureaucrat.getGrade() << std::endl;
   if (this->_signed == true)
-    std::cout << this->_name << " is already signed" << std::endl;
+    throw Form::AlreadySignedException();
   else if (bureaucrat.getGrade() > this->_req_grade_sign)
-    std::cout << this->_name << " can't be signed because "
-              << bureaucrat.getName() << "'s grade is too low" << std::endl;
+    throw Form::GradeTooLowException();
   else {
     std::cout << "Bureaucrat " << bureaucrat.getName() << " signed "
               << this->_name << std::endl;
@@ -89,4 +88,8 @@ const char* Form::GradeTooLowException::what() const throw() {
 
 const char* Form::GradeTooHighException::what() const throw() {
   return ("\033[1;31mException: grade is too high\033[0m");
+}
+
+const char* Form::AlreadySignedException::what() const throw() {
+  return ("\033[1;31mException: form is alreay signed\033[0m");
 }

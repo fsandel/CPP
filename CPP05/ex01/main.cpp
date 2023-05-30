@@ -55,10 +55,21 @@ int main(void) {
   Bureaucrat miraculix("Miraculix", 25);
 
   std::cout << std::endl;
-
-  pass_a.beSigned(obelix);
-  pass_a.beSigned(asterix);
-  pass_a.beSigned(miraculix);
+  try {
+    pass_a.beSigned(obelix);
+  } catch (std::exception &e) {
+    std::cout << e.what() << std::endl;
+  }
+  try {
+    pass_a.beSigned(asterix);
+  } catch (std::exception &e) {
+    std::cout << e.what() << std::endl;
+  }
+  try {
+    pass_a.beSigned(miraculix);
+  } catch (std::exception &e) {
+    std::cout << e.what() << std::endl;
+  }
   std::cout << pass_a;
 
   std::cout << std::endl;
