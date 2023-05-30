@@ -88,5 +88,21 @@ int main(void) {
     std::cout << e.what() << std::endl;
   }
   std::cout << std::endl << std::endl;
+
+  Bureaucrat huey("huey", 138);
+  Bureaucrat dewey("dewey", 46);
+  Bureaucrat louie("louie", 6);
+  std::cout << std::endl;
+  ShrubberyCreationForm shubber("Donald");
+  RobotomyRequestForm robotomy("Donald");
+  PresidentialPardonForm pardon("Donald");
+  std::cout << std::endl;
+  huey.signForm(shubber);
+  dewey.signForm(robotomy);
+  louie.signForm(pardon);
+  std::cout << std::endl;
+  huey.executeForm(shubber);
+  dewey.executeForm(robotomy);
+  louie.executeForm(pardon);
   return (0);
 }
