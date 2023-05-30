@@ -10,7 +10,7 @@ class AForm {
  public:
   AForm();
   AForm(std::string name, int req_grade_sign, int req_grade_exec);
-  ~AForm();
+  virtual ~AForm();
   AForm(AForm const& obj);
   AForm& operator=(const AForm& obj);
 
