@@ -33,6 +33,10 @@ class AForm {
    public:
     const char* what() const throw();
   };
+  class AlreadySignedException : public AForm::Exception {
+   public:
+    const char* what() const throw();
+  };
   class FormNotSigned : public AForm::Exception {
    public:
     const char* what() const throw();
