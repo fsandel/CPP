@@ -13,7 +13,7 @@
 NAME			=	convert
 CC				=	c++
 RM				=	rm -f
-CPPFLAGS		=	-std=c++98 -Wall -Wextra -Werror -Wunreachable-code -Wconversion
+CPPFLAGS		=	-std=c++98 -Wall -Wextra -Werror -Wunreachable-code #-Wconversion
 
 SRC				=	main.cpp ScalarConverter.cpp ScalarConverterIdentity.cpp ScalarConverterIdentityUtils.cpp
 

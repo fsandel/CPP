@@ -18,13 +18,14 @@ void ScalarConverter::convert(const std::string literal) {
 }
 
 void ScalarConverter::convertChar(const std::string literal) {
-  std::cout << "in convertChar" << std::endl;
   char char_value = literal.at(0);
+
   int int_value = static_cast<int>(char_value);
   float float_value = static_cast<float>(char_value);
   double double_value = static_cast<double>(char_value);
+
   if (!std::isprint(char_value))
-    std::cout << "char:\twhitespace" << std::endl;
+    std::cout << "char:\tnon printable" << std::endl;
   else
     std::cout << "char:\t" << char_value << std::endl;
   std::cout << "int:\t" << int_value << std::endl;
@@ -34,8 +35,8 @@ void ScalarConverter::convertChar(const std::string literal) {
 }
 
 void ScalarConverter::convertInt(const std::string literal) {
-  std::cout << "in convertInt" << std::endl;
   int int_value = std::atoi(literal.c_str());
+
   char char_value = static_cast<char>(int_value);
   float float_value = static_cast<float>(int_value);
   double double_value = static_cast<double>(int_value);
@@ -47,15 +48,14 @@ void ScalarConverter::convertInt(const std::string literal) {
   else
     std::cout << "char:\t" << char_value << std::endl;
   std::cout << "int:\t" << int_value << std::endl;
-  std::cout << std::fixed << std::setprecision(1) << std::showpoint;
+  if (int_value < 1000000) std::cout << std::fixed << std::setprecision(1);
   std::cout << "float:\t" << float_value << "f" << std::endl;
   std::cout << "double:\t" << double_value << std::endl;
 }
 
 void ScalarConverter::convertFloat(const std::string literal) {
-  std::cout << "in convertFloat" << std::endl;
-
   float float_value = static_cast<float>(std::strtod(literal.c_str(), NULL));
+
   char char_value = static_cast<char>(float_value);
   int int_value = static_cast<int>(float_value);
   double double_value = static_cast<double>(float_value);
@@ -70,15 +70,15 @@ void ScalarConverter::convertFloat(const std::string literal) {
     std::cout << "int:\timpossible" << std::endl;
   else
     std::cout << "int:\t" << int_value << std::endl;
-  if (fmod(float_value, 1.0f) != 0.0f)
-    std::cout << std::fixed << std::setprecision(1) << std::showpoint;
+  if (fmod(float_value, 1.0f) == 0.0f && float_value < 1000000.0f)
+    std::cout << std::fixed << std::setprecision(1);
   std::cout << "float:\t" << float_value << "f" << std::endl;
   std::cout << "double:\t" << double_value << std::endl;
 }
 
 void ScalarConverter::convertDouble(const std::string literal) {
-  std::cout << "in convertDouble" << std::endl;
   double double_value = std::strtod(literal.c_str(), NULL);
+
   char char_value = static_cast<char>(double_value);
   int int_value = static_cast<int>(double_value);
   float float_value = static_cast<float>(double_value);
@@ -93,8 +93,8 @@ void ScalarConverter::convertDouble(const std::string literal) {
     std::cout << "int:\timpossible" << std::endl;
   else
     std::cout << "int:\t" << int_value << std::endl;
-  if (fmod(float_value, 1.0f) != 0.0f)
-    std::cout << std::fixed << std::setprecision(1) << std::showpoint;
+  if (fmod(float_value, 1.0f) == 0.0f && float_value < 1000000.0f)
+    std::cout << std::fixed << std::setprecision(1);
   if (double_value > __FLT_MAX__ || double_value < -__FLT_MAX__)
     std::cout << "float:\timpossible" << std::endl;
   else
@@ -106,9 +106,9 @@ ScalarConverter::ScalarConverter() {}
 
 ScalarConverter::~ScalarConverter() {}
 
-ScalarConverter& ScalarConverter::operator=(const ScalarConverter& obj) {
+ScalarConverter &ScalarConverter::operator=(const ScalarConverter &obj) {
   (void)obj;
   return (*this);
 }
 
-ScalarConverter::ScalarConverter(ScalarConverter const& obj) { *this = obj; }
+ScalarConverter::ScalarConverter(ScalarConverter const &obj) { *this = obj; }
