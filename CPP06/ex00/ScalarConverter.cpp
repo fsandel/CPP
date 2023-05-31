@@ -66,11 +66,11 @@ void ScalarConverter::convertFloat(const std::string literal) {
     std::cout << "char:\tnon printable" << std::endl;
   else
     std::cout << "int:\t" << char_value << std::endl;
-  if (float_value >= INT_MAX || float_value < INT_MIN || literal == "nanf")
+  if (double_value >= INT_MAX || double_value < INT_MIN || literal == "nanf")
     std::cout << "int:\timpossible" << std::endl;
   else
     std::cout << "int:\t" << int_value << std::endl;
-  if (fmod(float_value, 1.0f) == 0.0f && float_value < 1000000.0f)
+  if (std::fmod(float_value, 1.0f) == 0.0f && float_value < 1000000.0f)
     std::cout << std::fixed << std::setprecision(1);
   std::cout << "float:\t" << float_value << "f" << std::endl;
   std::cout << "double:\t" << double_value << std::endl;
@@ -93,7 +93,7 @@ void ScalarConverter::convertDouble(const std::string literal) {
     std::cout << "int:\timpossible" << std::endl;
   else
     std::cout << "int:\t" << int_value << std::endl;
-  if (fmod(float_value, 1.0f) == 0.0f && float_value < 1000000.0f)
+  if (std::fmod(float_value, 1.0f) == 0.0f && float_value < 1000000.0f)
     std::cout << std::fixed << std::setprecision(1);
   if (double_value > __FLT_MAX__ || double_value < -__FLT_MAX__)
     std::cout << "float:\timpossible" << std::endl;
