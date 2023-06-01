@@ -8,7 +8,7 @@
 #include <string>
 #include <sstream>
 #include <iomanip>
-#include <math.h>
+#include <cmath>
 
 class ScalarConverter {
  public:
