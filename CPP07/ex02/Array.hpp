@@ -66,7 +66,7 @@ unsigned int Array<Type>::size(void) const {
 
 template <class Type>
 Type& Array<Type>::operator[](unsigned int i) const {
-  if (i >= this->size_) throw std::out_of_range("Array");
+  if (i >= this->size_) throw std::out_of_range("Out of range");
   return this->array_[i];
 }
 

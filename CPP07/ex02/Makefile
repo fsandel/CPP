@@ -6,7 +6,7 @@
 #    By: fsandel <fsandel@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/08 09:53:10 by fsandel           #+#    #+#              #
-#    Updated: 2023/06/01 17:43:57 by fsandel          ###   ########.fr        #
+#    Updated: 2023/06/01 20:45:25 by fsandel          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -25,7 +25,7 @@ $(NAME):			$(OBJ)
 					$(CC) $^ -o $@ $(CPPFLAGS)
 
 %.o:				%.cpp
-					$(CC) -o $@ -c $< $(CPPFLAGS)
+					$(CC) -o $@ -c $< $(CPPFLAGS) -I.
 
 clean:
 					$(RM) $(OBJ)
