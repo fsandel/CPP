@@ -56,11 +56,13 @@ bool ScalarConverter::isFloat(const std::string literal) {
 
 bool ScalarConverter::isDouble(const std::string literal) {
   char* end_ptr = NULL;
-  std::strtod(literal.c_str(), &end_ptr);
+  double double_value = std::strtod(literal.c_str(), &end_ptr);
   bool is_double = true;
   unsigned int i = 0;
   unsigned int j = 0;
 
+  if (double_value == double(INFINITY) && literal != "inf") return false;
+  if (double_value == -double(INFINITY) && literal != "-inf") return false;
   if (literal == "-inf" || literal == "+inf" || literal == "nan") return true;
   if (literal.at(i) == '+' || literal.at(i) == '-') i++;
   while (i < literal.length()) {

@@ -2,13 +2,13 @@
 #define EX00_SCALARCONVERTER_H_
 #include <cctype>
 #include <climits>
+#include <cmath>
 #include <cstdlib>
 #include <cwctype>
-#include <iostream>
-#include <string>
-#include <sstream>
 #include <iomanip>
-#include <cmath>
+#include <iostream>
+#include <sstream>
+#include <string>
 
 class ScalarConverter {
  public:
@@ -27,7 +27,6 @@ class ScalarConverter {
 
   static unsigned long len_skipping_zero(const std::string literal);
   static bool str_is_num(const std::string literal);
-
 
   ScalarConverter();
   ~ScalarConverter();

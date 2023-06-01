@@ -1,7 +1,6 @@
 #include "ScalarConverter.hpp"
 
-unsigned long ScalarConverter::len_skipping_zero(
-    const std::string literal) {
+unsigned long ScalarConverter::len_skipping_zero(const std::string literal) {
   unsigned long i = 0;
   if (literal.at(i) == '+' || literal.at(i) == '-') i++;
   while (i < literal.length() && literal.at(i) == '0') i++;
