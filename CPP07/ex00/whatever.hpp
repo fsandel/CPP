@@ -1,4 +1,3 @@
-// This is fsandel version of swap template
 template <typename Type>
 void swap(Type &first, Type &second) {
   Type temp(second);
@@ -6,7 +5,6 @@ void swap(Type &first, Type &second) {
   first = temp;
 }
 
-// This is fsandel version of min template
 template <typename Type>
 Type min(Type first, Type second) {
   if (first < second)
@@ -15,7 +13,6 @@ Type min(Type first, Type second) {
     return second;
 }
 
-// This is fsandel version of max template
 template <typename Type>
 Type max(Type first, Type second) {
   if (first > second)
