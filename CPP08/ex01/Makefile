@@ -6,7 +6,7 @@
 #    By: fsandel <fsandel@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/08 09:53:10 by fsandel           #+#    #+#              #
-#    Updated: 2023/05/17 21:23:33 by fsandel          ###   ########.fr        #
+#    Updated: 2023/06/13 13:05:01 by fsandel          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,7 +15,7 @@ CC				=	c++
 RM				=	rm -f
 CPPFLAGS		=	-std=c++98 -Wall -Wextra -Werror
 
-SRC				=	main.cpp
+SRC				=	main.cpp Span.cpp
 
 OBJ				=	$(SRC:.cpp=.o)
 
