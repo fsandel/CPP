@@ -7,7 +7,7 @@
 #include <string>
 #include <vector>
 
-#include "easyfind.hpp"
+#include "easyfind.h"
 
 int main(int argc, char *argv[]) {
   int to_find;

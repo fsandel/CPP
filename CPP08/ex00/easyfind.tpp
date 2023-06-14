@@ -13,4 +13,4 @@ int easyfind(Type container, int input) {
     throw std::exception();
 }
 
-#endif
+#endif  //EASYFIND_TPP_

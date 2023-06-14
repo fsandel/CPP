@@ -8,6 +8,4 @@
 template <typename Type>
 int easyfind(Type container, int input);
 
-#include "easyfind.tpp"
-
 #endif
