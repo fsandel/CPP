@@ -1,8 +1,6 @@
-#include <deque>
 #include <iostream>
 #include <iterator>
 #include <list>
-#include <stack>
 
 #include "MutantStack.hpp"
 
@@ -29,6 +27,7 @@ int main() {
     }
     std::list<int> s(mstack);
   }
+
   {
     std::cout << std::endl << "Now with Mutant stack" << std::endl;
     MutantStack<int> mstack;
