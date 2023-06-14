@@ -15,8 +15,10 @@ class MutantStack : public std::stack<Type, Container> {
   MutantStack(const MutantStack& obj);
   MutantStack& operator=(const MutantStack& obj);
   
-  typename Container::iterator begin() { return std::begin(c);}
-  typename Container::iterator end() { return std::end(c);}
+  typedef typename std::stack<Type>::container_type::iterator iterator;
+
+  iterator begin() { return std::stack<Type>::c.begin();}
+  iterator end() { return std::stack<Type>::c.end();}
  private:
 };
 
