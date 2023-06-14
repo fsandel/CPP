@@ -2,7 +2,7 @@
 #include <stdexcept>
 #include <string>
 
-#include "Array.hpp"
+#include "Array.h"
 
 int main2(void) {
   Array<int> array(5);
