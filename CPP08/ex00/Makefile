@@ -6,14 +6,14 @@
 #    By: fsandel <fsandel@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/08 09:53:10 by fsandel           #+#    #+#              #
-#    Updated: 2023/05/17 21:23:33 by fsandel          ###   ########.fr        #
+#    Updated: 2023/06/14 11:01:35 by fsandel          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME			=	a.out
 CC				=	c++
 RM				=	rm -f
-CPPFLAGS		=	-std=c++98 -Wall -Wextra -Werror
+CPPFLAGS	=	-std=c++98 -Wall -Wextra -Werror
 
 SRC				=	main.cpp
 
