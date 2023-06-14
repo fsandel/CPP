@@ -1,3 +1,6 @@
+#ifndef WHATEVER_HPP_
+#define WHATEVER_HPP_
+
 template <typename Type>
 void swap(Type &first, Type &second) {
   Type temp(second);
@@ -20,3 +23,5 @@ Type max(Type first, Type second) {
   else
     return second;
 }
+
+#endif  // WHATEVER_HPP_
