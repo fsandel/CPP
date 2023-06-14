@@ -1,20 +1,45 @@
 #include <iostream>
+#include <stdexcept>
 
 #include "Span.hpp"
 
 int main(void) {
-  int arr[] = {1, 2, 3, 4, 5};
-  std::vector<int> ar(arr, arr + 5);
-  Span test(10);
-  test.addIter(ar.begin(), ar.end());
-  // test.addRange(3, 5);
-  // test.addRange(2);
-  // test.addNumber(-5);
-  test.randomFill(100);
-  // test.addRange(14);
+  Span span(100000);
+  span.addNumber(42);
+  span.randomFill(1000000000);
 
-  std::cout << test << std::endl;
-  std::cout << "longestSpan() " << test.longestSpan() << std::endl;
-  std::cout << "shortestSpan() " << test.shortestSpan() << std::endl;
+  try {
+    span.addNumber(42);
+  } catch (std::exception &e) {
+    std::cerr << e.what() << std::endl;
+  }
+
+  try {
+    Span bad(1);
+    bad.addNumber(1);
+    bad.longestSpan();
+  } catch (std::exception &e) {
+    std::cerr << e.what() << std::endl;
+  }
+
+  try {
+    Span bad(0);
+    bad.longestSpan();
+  } catch (std::exception &e) {
+    std::cerr << e.what() << std::endl;
+  }
+
+  // std::cout << span << std::endl;
+  std::cout << "longestSpan() " << span.longestSpan() << std::endl;
+  std::cout << "shortestSpan() " << span.shortestSpan() << std::endl;
+
+  std::cout << std::endl << "Now small span" << std::endl;
+  Span small(10);
+  small.randomFill(300);
+  
+  std::cout << small << std::endl;
+  std::cout << "longestSpan() " << small.longestSpan() << std::endl;
+  std::cout << "shortestSpan() " << small.shortestSpan() << std::endl;
+
   return (0);
 }
