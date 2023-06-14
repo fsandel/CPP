@@ -1,6 +1,8 @@
 #ifndef ARRAY_TPP_
 #define ARRAY_TPP_
 
+#include "Array.hpp"
+
 template <class Type>
 Array<Type>::Array() : size_(0) {
   this->array_ = new Type[0];

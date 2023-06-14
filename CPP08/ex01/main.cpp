@@ -36,7 +36,7 @@ int main(void) {
   std::cout << std::endl << "Now small span" << std::endl;
   Span small(10);
   small.randomFill(300);
-  
+
   std::cout << small << std::endl;
   std::cout << "longestSpan() " << small.longestSpan() << std::endl;
   std::cout << "shortestSpan() " << small.shortestSpan() << std::endl;

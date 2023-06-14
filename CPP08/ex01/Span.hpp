@@ -1,5 +1,6 @@
 #ifndef SPAN_HPP_
 #define SPAN_HPP_
+
 #include <algorithm>
 #include <cstdlib>
 #include <ctime>
