@@ -2,7 +2,7 @@
 #include <iterator>
 #include <list>
 
-#include "MutantStack.hpp"
+#include "MutantStack.h"
 
 int main() {
   {

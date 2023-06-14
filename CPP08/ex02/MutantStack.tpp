@@ -1,10 +1,6 @@
 #ifndef MUTANTSTACK_TPP_
 #define MUTANTSTACK_TPP_
 
-#include <deque>
-#include <iterator>
-#include <stack>
-
 #include "MutantStack.hpp"
 
 template <class Type, typename Container>

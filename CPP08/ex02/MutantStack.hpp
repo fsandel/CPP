@@ -20,6 +20,4 @@ class MutantStack : public std::stack<Type, Container> {
   iterator end();
 };
 
-#include "MutantStack.tpp"
-
 #endif  // MUTANTSTACK_HPP_
