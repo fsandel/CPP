@@ -3,12 +3,12 @@
 
 int main(int argc, char *argv[])
 {
+  try {
     PmergeMe merge(argc, argv);
-    //std::cout << "creation time: " << merge.getInputTime() << std::endl;
-    //printContainer(merge.getVector());
-    //std::cout <<std::endl;
-    //printContainer(merge.getDeque());
-    //std::cout << std::endl;
     merge.printLog();
+  }
+  catch (std::exception &e) {
+    std::cout << "Error: " << e.what() << std::endl;
+  }
     return 0;
 }
