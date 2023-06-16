@@ -35,6 +35,7 @@ class PmergeMe {
   std::vector<int> getVector() const;
   std::deque<int> getDeque() const;
   void printLog() const;
+  void sort();
  private:
   double inputTime_;
   std::vector<int> before_copy;
@@ -44,7 +45,20 @@ class PmergeMe {
   void checkDuplicate(int new_nb) const;
   double vectorTime_;
   double dequeTime_;
+
+  template <typename Type>
+  void sortCont(Type &cont, double &time);
 };
 
 
 #endif  // PMERGEME_HPP_
+
+template <typename Type>
+inline void PmergeMe::sortCont(Type &cont, double &time)
+{
+  clock_t start = clock();
+
+  std::sort(cont.begin(), cont.end());
+
+  time = static_cast<double>(clock() - start) / CLOCKS_PER_SEC;
+}

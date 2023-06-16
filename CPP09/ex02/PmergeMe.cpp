@@ -50,9 +50,14 @@ void PmergeMe::printLog() const
   printContainer(this->vector_);
   std::cout << std::endl;
 
-std::cout << "Time to process a range of " <<this->vector_.size() << "elements with std::vector<int>: " <<( this->inputTime_ + this->vectorTime_) / 1000 << "µs" << std::endl;
-std::cout << "Time to process a range of " <<this->vector_.size() << "elements with std::deque<int>:  " <<( this->inputTime_ + this->dequeTime_) / 1000 << "µs" << std::endl;
+std::cout << "Time to process a range of " <<this->vector_.size() << " elements with std::vector<int>: " <<( this->inputTime_ + this->vectorTime_) / 1000 << "µs" << std::endl;
+std::cout << "Time to process a range of " <<this->vector_.size() << " elements with std::deque<int>:  " <<( this->inputTime_ + this->dequeTime_) / 1000 << "µs" << std::endl;
 
+}
+
+void PmergeMe::sort() {
+  sortCont(this->vector_, this->vectorTime_);
+  sortCont(this->deque_, this->dequeTime_);
 }
 
 void PmergeMe::checkDuplicate(int new_nb) const
