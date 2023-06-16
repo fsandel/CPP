@@ -14,8 +14,10 @@ class RPN {
   RPN& operator=(const RPN& obj);
   RPN(std::string str_represenation);
 
+  int solve();
  private:
   std::stack<int> nbrs_;
+  std::string str_;
 
   RPN();
   static bool is_valid_rpn_char(std::string::iterator iter);

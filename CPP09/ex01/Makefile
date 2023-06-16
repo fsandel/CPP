@@ -1,9 +1,9 @@
-NAME			=	a.out
+NAME			=	RPN
 CC				=	c++
 RM				=	rm -f
 CPPFLAGS	=	-std=c++98 -Wall -Wextra -Werror
 
-SRC				=	main.cpp
+SRC				=	main.cpp RPN.cpp RPN_utils.cpp RPN_math.cpp
 
 OBJ				=	$(SRC:.cpp=.o)
 
