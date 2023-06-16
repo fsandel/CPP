@@ -15,6 +15,7 @@ class RPN {
   RPN(std::string str_represenation);
 
   int solve();
+
  private:
   std::stack<int> nbrs_;
   std::string str_;
