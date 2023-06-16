@@ -1,25 +1,26 @@
 #ifndef PMERGEME_HPP_
 #define PMERGEME_HPP_
 
-#include <vector>
-#include <deque>
-#include <cstdlib>
-#include <stdexcept>
 #include <climits>
+#include <cstdlib>
 #include <ctime>
-#include <iterator>
+#include <deque>
 #include <iostream>
+#include <iterator>
+#include <stdexcept>
+#include <vector>
 
 template <typename Type>
 void printContainer(Type container, bool sh = true) {
   std::string ret = "";
-  for(typename Type::iterator iter = container.begin(); iter < container.end(); iter++) {
-    if (iter != container.begin())
-      std::cout << " ";
+  for (typename Type::iterator iter = container.begin(); iter < container.end();
+       iter++) {
+    if (iter != container.begin()) std::cout << " ";
     std::cout << *iter;
-    if (sh == true && distance(container.begin(), iter) > 2 && container.size() > 4) {
+    if (sh == true && distance(container.begin(), iter) > 2 &&
+        container.size() > 4) {
       std::cout << " [...]";
-      break ;
+      break;
     }
   }
 }
@@ -36,6 +37,7 @@ class PmergeMe {
   std::deque<int> getDeque() const;
   void printLog() const;
   void sort();
+
  private:
   double inputTime_;
   std::vector<int> before_copy;
@@ -50,15 +52,13 @@ class PmergeMe {
   void sortCont(Type &cont, double &time);
 };
 
-
-#endif  // PMERGEME_HPP_
-
 template <typename Type>
-inline void PmergeMe::sortCont(Type &cont, double &time)
-{
+inline void PmergeMe::sortCont(Type &cont, double &time) {
   clock_t start = clock();
 
   std::sort(cont.begin(), cont.end());
 
   time = static_cast<double>(clock() - start) / CLOCKS_PER_SEC;
 }
+
+#endif  // PMERGEME_HPP_
