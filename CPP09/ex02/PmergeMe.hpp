@@ -28,25 +28,29 @@ void printContainer(Type container, bool sh = true) {
 class PmergeMe {
  public:
   ~PmergeMe();
-  PmergeMe(const PmergeMe &obj);
-  PmergeMe operator=(const PmergeMe &obj);
   PmergeMe(int argc, char **argv);
-  bool validateInput(char **argv);
+
   double getInputTime() const;
   std::vector<int> getVector() const;
   std::deque<int> getDeque() const;
+
   void printLog() const;
   void sort();
 
  private:
   double inputTime_;
-  std::vector<int> before_copy;
-  PmergeMe();
-  std::vector<int> vector_;
-  std::deque<int> deque_;
-  void checkDuplicate(int new_nb) const;
   double vectorTime_;
   double dequeTime_;
+
+  std::vector<int> vector_;
+  std::deque<int> deque_;
+  std::vector<int> before_copy_;
+
+  PmergeMe();
+  PmergeMe(const PmergeMe &obj);
+  PmergeMe operator=(const PmergeMe &obj);
+
+  void checkDuplicate(int new_nb) const;
 
   template <typename Type>
   void sortCont(Type &cont, double &time);

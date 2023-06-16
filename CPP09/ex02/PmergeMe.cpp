@@ -15,7 +15,7 @@ PmergeMe::PmergeMe(int argc, char **argv) {
     this->deque_.push_back(nbr_int);
     this->vector_.push_back(nbr_int);
   }
-  this->before_copy = this->vector_;
+  this->before_copy_ = this->vector_;
   this->inputTime_ = static_cast<double>(clock() - start) / CLOCKS_PER_SEC;
   this->dequeTime_ = 0;
   this->vectorTime_ = 0;
@@ -29,7 +29,7 @@ std::deque<int> PmergeMe::getDeque() const { return this->deque_; }
 
 void PmergeMe::printLog() const {
   std::cout << "Before \t";
-  printContainer(this->before_copy);
+  printContainer(this->before_copy_);
   std::cout << std::endl << "After \t";
   printContainer(this->vector_);
   std::cout << std::endl;
