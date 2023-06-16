@@ -21,6 +21,9 @@ PmergeMe::PmergeMe(int argc, char **argv)
   }
     this->before_copy = this->vector_;
     this->inputTime_ = static_cast<double>(clock() - start) / CLOCKS_PER_SEC;
+    this->dequeTime_ = 0;
+    this->vectorTime_ = 0;
+
 
 }
 
@@ -37,6 +40,19 @@ std::vector<int> PmergeMe::getVector() const
 std::deque<int> PmergeMe::getDeque() const
 {
   return this->deque_;
+}
+
+void PmergeMe::printLog() const
+{
+  std::cout << "Before \t";
+  printContainer(this->before_copy);
+  std::cout << std::endl << "After \t";
+  printContainer(this->vector_);
+  std::cout << std::endl;
+
+std::cout << "Time to process a range of " <<this->vector_.size() << "elements with std::vector<int>: " <<( this->inputTime_ + this->vectorTime_) / 1000 << "µs" << std::endl;
+std::cout << "Time to process a range of " <<this->vector_.size() << "elements with std::deque<int>:  " <<( this->inputTime_ + this->dequeTime_) / 1000 << "µs" << std::endl;
+
 }
 
 void PmergeMe::checkDuplicate(int new_nb) const

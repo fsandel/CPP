@@ -34,6 +34,7 @@ class PmergeMe {
   double getInputTime() const;
   std::vector<int> getVector() const;
   std::deque<int> getDeque() const;
+  void printLog() const;
  private:
   double inputTime_;
   std::vector<int> before_copy;
@@ -41,6 +42,8 @@ class PmergeMe {
   std::vector<int> vector_;
   std::deque<int> deque_;
   void checkDuplicate(int new_nb) const;
+  double vectorTime_;
+  double dequeTime_;
 };
 
 
