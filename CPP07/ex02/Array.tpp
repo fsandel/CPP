@@ -15,7 +15,7 @@ Array<Type>::Array(unsigned int size) : size_(size) {
 
 template <class Type>
 Array<Type>::~Array() {
-  delete this->array_;
+  delete[] this->array_;
 }
 
 template <class Type>
