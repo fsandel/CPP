@@ -12,8 +12,6 @@ int main(int argc, char *argv[]) {
   }
   try {
     BitcoinExchange data("data.csv");
-    // database.printDatabase();
-    // std::cout << database.searchValue(20101010) << std::endl;
     HandleInput(argv[1], data);
   } catch (std::exception &e) {
     std::cout << "Error: " << e.what() << std::endl;

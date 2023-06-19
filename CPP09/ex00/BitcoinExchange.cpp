@@ -15,7 +15,8 @@ BitcoinExchange::BitcoinExchange(const std::string& inputfile) {
     if (tmp.size() == 0) continue;
 
     pair = split(tmp, ",");
-    database_.insert(std::make_pair(DateToInt(pair.first), readValue(pair.second)));
+    database_.insert(
+        std::make_pair(DateToInt(pair.first), readValue(pair.second)));
   }
 }
 
