@@ -19,14 +19,16 @@ void HandleInput(std::string inputfile, BitcoinExchange& database) {
   if (tmp != "date | value")
     throw std::ifstream::failure("invalid Header " + inputfile);
   std::pair<std::string, std::string> pair;
+  float value;
+  float database_value;
   while (std::getline(file_stream, tmp)) {
     if (tmp.size() == 0) continue;
     try {
       pair = split(tmp, " | ");
-      std::cout << pair.first << " => " << readValue(pair.second) << " = "
-                << readValue(pair.second) *
-                       database.searchValue(DateToInt(pair.first))
-                << std::endl;
+      value = readValue(pair.second);
+      database_value = database.searchValue(DateToInt(pair.first));
+      std::cout << pair.first << " => " << value << " = "
+                << value * database_value << std::endl;
     } catch (std::exception& e) {
       std::cout << "Error: " << e.what() << std::endl;
     }
