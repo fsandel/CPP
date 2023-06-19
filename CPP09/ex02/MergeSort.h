@@ -41,7 +41,8 @@ void merge(Iterator begin, Iterator mid, Iterator end) {
 template <typename Iterator, typename Sequence>
 void mergeSort(Iterator first, Iterator last) {
   if (std::distance(first, last) > 1) {
-    Iterator mid = first + std::distance(first, last) / 2;
+    Iterator mid = first;
+    std::advance(mid, std::distance(first, last) / 2);
     mergeSort<Iterator, Sequence>(first, mid);
     mergeSort<Iterator, Sequence>(mid, last);
     merge<Iterator, Sequence>(first, mid, last);
