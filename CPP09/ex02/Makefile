@@ -3,7 +3,7 @@ CC				=	c++
 RM				=	rm -f
 CPPFLAGS	=	-std=c++98 -Wall -Wextra -Werror
 
-SRC				=	main.cpp PmergeMe.cpp pair_operator.cpp
+SRC				=	main.cpp pair_operator.cpp
 
 OBJ				=	$(SRC:.cpp=.o)
 

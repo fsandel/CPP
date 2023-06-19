@@ -11,10 +11,11 @@
 #include <utility>
 #include <vector>
 
+#include "InsertionSort.h"
 #include "MergeSort.h"
 #include "pair_operator.h"
 
-template <typename Type>
+template <class Type>
 void printContainer(Type container, bool sh = true) {
   std::string ret = "";
   for (typename Type::iterator iter = container.begin(); iter < container.end();
@@ -29,26 +30,21 @@ void printContainer(Type container, bool sh = true) {
   }
 }
 
+template <class Type, class Pair>
 class PmergeMe {
  public:
-  ~PmergeMe();
+  ~PmergeMe() {}
   PmergeMe(int argc, char **argv);
 
-  double getInputTime() const;
-  std::vector<int> getVector() const;
-  std::deque<int> getDeque() const;
-
-  void printLog() const;
   void sort();
 
  private:
   double inputTime_;
-  double vectorTime_;
-  double dequeTime_;
+  double sortTime_;
 
-  std::vector<std::pair<int, int> > vector_pair_;
-  std::deque<std::pair<int, int> > deque_pair_;
-  std::vector<int> before_copy_;
+  Pair pair_cont_;
+  Type cont_;
+  Type before_;
 
   PmergeMe();
   PmergeMe(const PmergeMe &obj);
@@ -56,17 +52,7 @@ class PmergeMe {
 
   void checkDuplicate(int new_nb) const;
   void fillPairContainer();
-
-  template <typename Type>
-  void sortCont(Type &cont, double &time);
+  void fillNormalContainer();
 };
-
-template <typename Type>
-inline void PmergeMe::sortCont(Type &cont, double &time) {
-  clock_t start = clock();
-
-  mergeSort<typename Type::iterator, Type>(cont.begin(), cont.end());
-  time = static_cast<double>(clock() - start) / CLOCKS_PER_SEC;
-}
 
 #endif  // PMERGEME_HPP_

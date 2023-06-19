@@ -1,7 +1,7 @@
 #ifndef PAIR_OPERATOR_H_
 #define PAIR_OPERATOR_H_
 
-#define SIDE 0
+#define SIDE 1
 
 #include <utility>
 

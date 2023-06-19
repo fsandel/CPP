@@ -6,30 +6,45 @@
 #include "pair_operator.h"
 
 template <typename Iterator, typename Sequence>
-void mergeSort(Iterator begin, Iterator end);
-
-template <typename Iterator, typename Sequence>
 void merge(Iterator begin, Iterator mid, Iterator end) {
-  Sequence temp(begin, end);
-  Iterator left = temp.begin();
-  Iterator right = mid;
-  Iterator current = begin;
+  Sequence left(begin, mid);
+  Sequence right(mid, end);
 
-  while (left != mid && right != temp.end())
-    *current++ = (*left <= *right) ? *left++ : *right++;
+  Iterator leftIt = left.begin();
+  Iterator rightIt = right.begin();
+  Iterator mergeIt = begin;
 
-  while (left != mid) *current++ = *left++;
+  while (leftIt != left.end() && rightIt != right.end()) {
+    if (*leftIt <= *rightIt) {
+      *mergeIt = *leftIt;
+      ++leftIt;
+    } else {
+      *mergeIt = *rightIt;
+      ++rightIt;
+    }
+    ++mergeIt;
+  }
 
-  while (right != temp.end()) *current++ = *right++;
+  while (leftIt != left.end()) {
+    *mergeIt = *leftIt;
+    ++leftIt;
+    ++mergeIt;
+  }
+
+  while (rightIt != right.end()) {
+    *mergeIt = *rightIt;
+    ++rightIt;
+    ++mergeIt;
+  }
 }
 
 template <typename Iterator, typename Sequence>
-void mergeSort(Iterator begin, Iterator end) {
-  if (distance(begin, end) > 1) {
-    Iterator mid = begin + distance(begin, end) / 2 + 1;
-    mergeSort<Iterator, Sequence>(begin, mid);
-    mergeSort<Iterator, Sequence>(mid, end);
-    merge<Iterator, Sequence>(begin, mid, end);
+void mergeSort(Iterator first, Iterator last) {
+  if (std::distance(first, last) > 1) {
+    Iterator mid = first + std::distance(first, last) / 2;
+    mergeSort<Iterator, Sequence>(first, mid);
+    mergeSort<Iterator, Sequence>(mid, last);
+    merge<Iterator, Sequence>(first, mid, last);
   }
 }
 
