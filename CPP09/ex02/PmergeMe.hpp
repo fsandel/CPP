@@ -8,7 +8,10 @@
 #include <iostream>
 #include <iterator>
 #include <stdexcept>
+#include <utility>
 #include <vector>
+
+#include "pair_operator.h"
 
 template <typename Type>
 void printContainer(Type container, bool sh = true) {
@@ -42,8 +45,8 @@ class PmergeMe {
   double vectorTime_;
   double dequeTime_;
 
-  std::vector<int> vector_;
-  std::deque<int> deque_;
+  std::vector<std::pair<int, int> > vector_pair_;
+  std::deque<std::pair<int, int> > deque_pair_;
   std::vector<int> before_copy_;
 
   PmergeMe();
@@ -51,6 +54,7 @@ class PmergeMe {
   PmergeMe operator=(const PmergeMe &obj);
 
   void checkDuplicate(int new_nb) const;
+  void fillPairContainer();
 
   template <typename Type>
   void sortCont(Type &cont, double &time);
@@ -60,8 +64,8 @@ template <typename Type>
 inline void PmergeMe::sortCont(Type &cont, double &time) {
   clock_t start = clock();
 
-  std::sort(cont.begin(), cont.end());
-
+  // std::sort(cont.begin(), cont.end());
+  (void)cont;
   time = static_cast<double>(clock() - start) / CLOCKS_PER_SEC;
 }
 
