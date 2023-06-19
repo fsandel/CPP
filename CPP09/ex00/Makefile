@@ -1,9 +1,9 @@
-NAME			=	a.out
+NAME			=	btc
 CC				=	c++
 RM				=	rm -f
 CPPFLAGS	=	-std=c++98 -Wall -Wextra -Werror
 
-SRC				=	main.cpp
+SRC				=	main.cpp BitcoinExchange.cpp utils.cpp HandleInput.cpp
 
 OBJ				=	$(SRC:.cpp=.o)
 
