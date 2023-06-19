@@ -39,5 +39,5 @@ bool operator!=(std::pair<int, int> left, std::pair<int, int> right) {
   if (SIDE == 0)
     return left.second != right.second;
   else
-    return left.first = right.first;
+    return left.first != right.first;
 }

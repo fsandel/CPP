@@ -44,8 +44,8 @@ double PmergeMe::getInputTime() const { return this->inputTime_; }
 // }
 
 void PmergeMe::sort() {
-  // sortCont(this->vector_, this->vectorTime_);
-  // sortCont(this->deque_, this->dequeTime_);
+  sortCont(this->vector_pair_, this->vectorTime_);
+  // sortCont(this->deque_pair_, this->dequeTime_);
 }
 
 void PmergeMe::checkDuplicate(int new_nb) const {

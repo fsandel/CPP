@@ -11,6 +11,7 @@
 #include <utility>
 #include <vector>
 
+#include "MergeSort.h"
 #include "pair_operator.h"
 
 template <typename Type>
@@ -64,8 +65,7 @@ template <typename Type>
 inline void PmergeMe::sortCont(Type &cont, double &time) {
   clock_t start = clock();
 
-  // std::sort(cont.begin(), cont.end());
-  (void)cont;
+  mergeSort<typename Type::iterator, Type>(cont.begin(), cont.end());
   time = static_cast<double>(clock() - start) / CLOCKS_PER_SEC;
 }
 
