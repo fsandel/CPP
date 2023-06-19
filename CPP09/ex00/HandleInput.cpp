@@ -2,8 +2,7 @@
 
 float readValue(std::string str) {
   char* end_ptr = NULL;
-  if (str.size() < 4) throw std::runtime_error("invalid value in data");
-  float nb = std::strtof(str.c_str() + 3, &end_ptr);
+  float nb = std::strtof(str.c_str(), &end_ptr);
   if (!end_ptr) throw std::runtime_error("invalid value in data");
   if (end_ptr[0] != '\0') throw std::runtime_error("invalid value in data");
   if (nb < 0) throw std::runtime_error("negative value");
@@ -19,18 +18,14 @@ void HandleInput(std::string inputfile, BitcoinExchange& database) {
   std::getline(file_stream, tmp);
   if (tmp != "date | value")
     throw std::ifstream::failure("invalid Header " + inputfile);
-  std::string first;
-  std::string second;
-  std::size_t delimiter;
+  std::pair<std::string, std::string> pair;
   while (std::getline(file_stream, tmp)) {
+    if (tmp.size() == 0) continue;
     try {
-      delimiter = tmp.find(" | ");
-      if (delimiter == std::string::npos)
-        throw std::runtime_error("invalid delimiter");
-      first = tmp.substr(0, delimiter);
-      second = tmp.substr(delimiter);
-      std::cout << first << " => " << readValue(second) << " = "
-                << readValue(second) * database.searchValue(DateToInt(first))
+      pair = split(tmp, " | ");
+      std::cout << pair.first << " => " << readValue(pair.second) << " = "
+                << readValue(pair.second) *
+                       database.searchValue(DateToInt(pair.first))
                 << std::endl;
     } catch (std::exception& e) {
       std::cout << "Error: " << e.what() << std::endl;

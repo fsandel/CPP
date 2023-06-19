@@ -7,6 +7,7 @@
 #include <string>
 
 #include "BitcoinExchange.hpp"
+#include "utils.h"
 
 void HandleInput(std::string inputfile, BitcoinExchange& database);
 

@@ -10,12 +10,12 @@ BitcoinExchange::BitcoinExchange(const std::string& inputfile) {
   std::getline(file_stream, tmp);
   if (tmp != "date,exchange_rate")
     throw std::ifstream::failure("invalid Header " + inputfile);
-  std::string first;
-  std::string second;
+  std::pair<std::string, std::string> pair;
   while (std::getline(file_stream, tmp)) {
-    first = tmp.substr(0, tmp.find(','));
-    second = tmp.substr(tmp.find(','));
-    database_.insert(std::make_pair(DateToInt(first), readValue(second)));
+    if (tmp.size() == 0) continue;
+
+    pair = split(tmp, ",");
+    database_.insert(std::make_pair(DateToInt(pair.first), readValue(pair.second)));
   }
 }
 
@@ -40,8 +40,7 @@ float BitcoinExchange::searchValue(int date) {
 
 float BitcoinExchange::readValue(std::string str) {
   char* end_ptr = NULL;
-  if (str.size() < 2) throw std::runtime_error("invalid value in data");
-  float nb = std::strtof(str.c_str() + 1, &end_ptr);
+  float nb = std::strtof(str.c_str(), &end_ptr);
   if (!end_ptr) throw std::runtime_error("invalid value in data");
   if (end_ptr[0] != '\0') throw std::runtime_error("invalid value in data");
   return nb;
