@@ -4,25 +4,13 @@
 #include <iterator>
 
 template <typename Iterator>
-void advance(Iterator& it,
-             typename std::iterator_traits<Iterator>::difference_type n) {
-  if (n >= 0) {
-    while (n > 0) {
-      ++it;
-      --n;
-    }
-  } else {
-    while (n < 0) {
-      --it;
-      ++n;
-    }
-  }
+void advance(Iterator& it) {
+  it++;
 }
 
 template <typename Iterator>
-Iterator prev(Iterator it,
-              typename std::iterator_traits<Iterator>::difference_type n) {
-  ::advance(it, -n);
+Iterator prev(Iterator it) {
+  it--;
   return it;
 }
 
@@ -32,8 +20,8 @@ void insertionSort(Iterator first, Iterator last) {
     typename std::iterator_traits<Iterator>::value_type current = *it;
     Iterator position = it;
 
-    while (position != first && *(::prev(position, 1)) > current) {
-      *position = *(::prev(position, 1));
+    while (position != first && *(::prev(position)) > current) {
+      *position = *(::prev(position));
       --position;
     }
 

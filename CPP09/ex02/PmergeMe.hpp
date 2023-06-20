@@ -56,7 +56,7 @@ void push_back(std::set<T>& s, const T& value) {
 }
 
 std::ostream& operator<<(std::ostream& os, std::vector<int>& obj) {
-  for (typename std::vector<int>::iterator iter = obj.begin(); iter < obj.end();
+  for (std::vector<int>::iterator iter = obj.begin(); iter < obj.end();
        iter++) {
     if (iter != obj.begin()) os << " ";
     os << *iter;
@@ -69,7 +69,7 @@ std::ostream& operator<<(std::ostream& os, std::vector<int>& obj) {
 }
 
 std::ostream& operator<<(std::ostream& os, std::deque<int>& obj) {
-  for (typename std::deque<int>::iterator iter = obj.begin(); iter < obj.end();
+  for (std::deque<int>::iterator iter = obj.begin(); iter < obj.end();
        iter++) {
     if (iter != obj.begin()) os << " ";
     os << *iter;
@@ -82,7 +82,7 @@ std::ostream& operator<<(std::ostream& os, std::deque<int>& obj) {
 }
 
 std::ostream& operator<<(std::ostream& os, std::list<int>& obj) {
-  for (typename std::list<int>::iterator iter = obj.begin(); iter != obj.end();
+  for (std::list<int>::iterator iter = obj.begin(); iter != obj.end();
        iter++) {
     if (iter != obj.begin()) os << " ";
     os << *iter;

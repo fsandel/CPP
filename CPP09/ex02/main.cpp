@@ -2,6 +2,8 @@
 #include <list>
 #include <set>
 #include <vector>
+#include <queue>
+#include <deque>
 
 #include "PmergeMe.h"
 #include "rules.h"
