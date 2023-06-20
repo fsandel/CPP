@@ -29,7 +29,6 @@ int main(void) {
     std::cerr << e.what() << std::endl;
   }
 
-  // std::cout << span << std::endl;
   std::cout << "longestSpan() " << span.longestSpan() << std::endl;
   std::cout << "shortestSpan() " << span.shortestSpan() << std::endl;
 
