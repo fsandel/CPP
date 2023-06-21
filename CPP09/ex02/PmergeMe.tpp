@@ -48,7 +48,6 @@ void PmergeMe<Type, Pair>::fillPairContainer() {
   }
 }
 
-
 template <class Type, class Pair>
 void PmergeMe<Type, Pair>::insertionSort() {
   typename Pair::iterator start = this->pair_cont_.begin();
@@ -56,15 +55,20 @@ void PmergeMe<Type, Pair>::insertionSort() {
        ++iter) {
     this->cont_.push_back((*iter).first);
   }
-  for (typename Pair::iterator pair_iter = start; pair_iter != this->pair_cont_.end(); ++pair_iter) {
+  for (typename Pair::iterator pair_iter = start;
+       pair_iter != this->pair_cont_.end(); ++pair_iter) {
     typename Type::iterator insert_iter = this->cont_.begin();
-    while ((*insert_iter) < (*pair_iter).second && insert_iter != this->cont_.end()) {insert_iter++;}
+    while ((*insert_iter) < (*pair_iter).second &&
+           insert_iter != this->cont_.end()) {
+      insert_iter++;
+    }
     this->cont_.insert(insert_iter, (*pair_iter).second);
   }
-  if(this->leftover_ == -1)
-    return ;
+  if (this->leftover_ == -1) return;
   typename Type::iterator insert_iter = this->cont_.begin();
-  while (*insert_iter < this->leftover_) {insert_iter++;}
+  while (*insert_iter < this->leftover_) {
+    insert_iter++;
+  }
   this->cont_.insert(insert_iter, this->leftover_);
 }
 
