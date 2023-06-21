@@ -1,7 +1,7 @@
 NAME			=	PmergeMe
 CC				=	c++
 RM				=	rm -f
-CPPFLAGS	=	-std=c++98 -Wall -Wextra -Werror
+CPPFLAGS	=	-std=c++98 -Wall -Wextra -Werror -fsanitize=address -g
 
 SRC				=	main.cpp pair_operator.cpp
 

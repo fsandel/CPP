@@ -4,6 +4,7 @@
 #include <queue>
 #include <set>
 #include <vector>
+#include <queue>
 
 #include "PmergeMe.h"
 #include "rules.h"
