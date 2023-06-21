@@ -6,6 +6,6 @@
 #define DUPLICATE false
 
 // true for short array print output, false for full output
-#define SHORT true
+#define SHORT false
 
 #endif  // RULES_H_

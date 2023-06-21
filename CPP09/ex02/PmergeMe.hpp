@@ -47,7 +47,7 @@ class PmergeMe {
 
   void checkDuplicate(int new_nb) const;
   void fillPairContainer();
-  void fillNormalContainer();
+  void insertionSort();
 };
 
 template <typename T>

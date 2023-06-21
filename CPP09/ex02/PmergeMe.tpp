@@ -48,15 +48,24 @@ void PmergeMe<Type, Pair>::fillPairContainer() {
   }
 }
 
+
 template <class Type, class Pair>
-void PmergeMe<Type, Pair>::fillNormalContainer() {
+void PmergeMe<Type, Pair>::insertionSort() {
   typename Pair::iterator start = this->pair_cont_.begin();
   for (typename Pair::iterator iter = start; iter != this->pair_cont_.end();
        ++iter) {
     this->cont_.push_back((*iter).first);
-    this->cont_.push_back((*iter).second);
   }
-  if (this->leftover_ != -1) this->cont_.push_back(leftover_);
+  for (typename Pair::iterator pair_iter = start; pair_iter != this->pair_cont_.end(); ++pair_iter) {
+    typename Type::iterator insert_iter = this->cont_.begin();
+    while ((*insert_iter) < (*pair_iter).second && insert_iter != this->cont_.end()) {insert_iter++;}
+    this->cont_.insert(insert_iter, (*pair_iter).second);
+  }
+  if(this->leftover_ == -1)
+    return ;
+  typename Type::iterator insert_iter = this->cont_.begin();
+  while (*insert_iter < this->leftover_) {insert_iter++;}
+  this->cont_.insert(insert_iter, this->leftover_);
 }
 
 template <class Type, class Pair>
@@ -74,10 +83,7 @@ void PmergeMe<Type, Pair>::sort() {
 
   mergeSort<typename Pair::iterator, Pair>(this->pair_cont_.begin(),
                                            this->pair_cont_.end());
-  this->fillNormalContainer();
-  insertionSort<typename Type::iterator>(this->cont_.begin(),
-                                         this->cont_.end());
-
+  this->insertionSort();
   this->sortTime_ = static_cast<double>(clock() - start) / CLOCKS_PER_SEC;
 }
 

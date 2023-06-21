@@ -1,9 +1,9 @@
+#include <deque>
 #include <iostream>
 #include <list>
+#include <queue>
 #include <set>
 #include <vector>
-#include <queue>
-#include <deque>
 
 #include "PmergeMe.h"
 #include "rules.h"

@@ -8,25 +8,25 @@ int max(std::pair<int, int> pair) {
 }
 
 bool operator<(std::pair<int, int> left, std::pair<int, int> right) {
-  return max(left) < max(right);
+  return left.first < right.first;
 }
 
 bool operator<=(std::pair<int, int> left, std::pair<int, int> right) {
-  return max(left) <= max(right);
+  return left.first <= right.first;
 }
 
 bool operator>(std::pair<int, int> left, std::pair<int, int> right) {
-  return max(left) > max(right);
+  return left.first > right.first;
 }
 
 bool operator>=(std::pair<int, int> left, std::pair<int, int> right) {
-  return max(left) >= max(right);
+  return left.first >= right.first;
 }
 
 bool operator==(std::pair<int, int> left, std::pair<int, int> right) {
-  return max(left) == max(right);
+  return left.first == right.first;
 }
 
 bool operator!=(std::pair<int, int> left, std::pair<int, int> right) {
-  return max(left) != max(right);
+  return left.first != right.first;
 }
