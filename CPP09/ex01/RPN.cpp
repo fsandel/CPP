@@ -13,7 +13,7 @@ RPN& RPN::operator=(const RPN& obj) {
 
 RPN::RPN(std::string str_represenation) {
   if (!is_valid_rpn_string(str_represenation))
-    throw std::invalid_argument("Inupt is not valid");
+    throw std::invalid_argument("Input is not valid");
   this->str_ = str_represenation;
 }
 
