@@ -14,7 +14,7 @@ int main(int argc, char *argv[]) {
     BitcoinExchange data("data.csv");
     HandleInput(argv[1], data);
   } catch (std::exception &e) {
-    std::cout << "Error: Database: " << e.what() << std::endl;
+    std::cout << "Error:" << e.what() << std::endl;
     return 1;
   }
   return 0;

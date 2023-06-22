@@ -5,11 +5,11 @@ BitcoinExchange::~BitcoinExchange() {}
 BitcoinExchange::BitcoinExchange(const std::string& inputfile) {
   std::fstream file_stream(inputfile.c_str());
   if (!file_stream.is_open())
-    throw std::ifstream::failure("Can't open " + inputfile);
+    throw std::ifstream::failure("Database: Can't open " + inputfile);
   std::string tmp;
   std::getline(file_stream, tmp);
   if (tmp != "date,exchange_rate")
-    throw std::ifstream::failure("invalid Header " + inputfile);
+    throw std::ifstream::failure("Database: invalid Header " + inputfile);
   std::pair<std::string, std::string> pair;
   while (std::getline(file_stream, tmp)) {
     if (tmp.size() == 0) continue;
@@ -35,14 +35,14 @@ float BitcoinExchange::searchValue(int date) {
     value = (*iter).second;
     iter++;
   }
-  if (value < 0) throw std::runtime_error("No fitting value found");
+  if (value < 0) throw std::runtime_error("Database: No fitting value found");
   return value;
 }
 
 float BitcoinExchange::readValue(std::string str) {
   char* end_ptr = NULL;
   float nb = std::strtof(str.c_str(), &end_ptr);
-  if (!end_ptr) throw std::runtime_error("invalid value in data");
-  if (end_ptr[0] != '\0') throw std::runtime_error("invalid value in data");
+  if (!end_ptr) throw std::runtime_error("Database: invalid value in data");
+  if (end_ptr[0] != '\0') throw std::runtime_error("Database: invalid value in data");
   return nb;
 }
