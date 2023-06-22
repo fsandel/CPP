@@ -57,17 +57,17 @@ void PmergeMe<Type, Pair>::insertionSort() {
   typename Pair::iterator start = this->pair_cont_.begin();
   for (typename Pair::iterator iter = start; iter != this->pair_cont_.end();
        ++iter) {
-    this->cont_.push_back((*iter).first);
+    this->cont_.push_back((*iter).second);
   }
   for (typename Pair::iterator pair_iter = start;
        pair_iter != this->pair_cont_.end(); ++pair_iter) {
     typename Type::iterator insert_iter = this->cont_.begin();
     while (insert_iter != this->cont_.end() &&
-           (*insert_iter) < (*pair_iter).second) {
+           (*insert_iter) < (*pair_iter).first) {
       insert_iter++;
     }
     if (insert_iter != this->cont_.end())
-      this->cont_.insert(insert_iter, (*pair_iter).second);
+      this->cont_.insert(insert_iter, (*pair_iter).first);
   }
   if (this->leftover_ == -1) return;
   typename Type::iterator insert_iter = this->cont_.begin();
