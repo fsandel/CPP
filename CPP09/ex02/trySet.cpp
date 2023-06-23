@@ -3,6 +3,7 @@
 #include <iostream>
 #include <set>
 #include <stdexcept>
+#include <cstdlib>
 
 #include "rules.h"
 

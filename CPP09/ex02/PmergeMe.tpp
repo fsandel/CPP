@@ -48,6 +48,33 @@ void PmergeMe<Type, Pair>::fillPairContainer() {
   }
 }
 
+template <typename Container>
+int binarySearch(const Container& arr, int left, int right, const int target) {
+    while (left <= right) {
+        int mid = left + (right - left) / 2;
+
+        if (arr[mid] == target)
+            return mid;  // Found the insertion position
+
+        if (arr[mid] < target)
+            left = mid + 1;  // Search in the right half
+        else
+            right = mid - 1;  // Search in the left half
+    }
+    return 0;
+}
+
+int calc_jacobsthal(int iter, int size) {
+    if (iter == 0)
+        return 0;
+    if (iter == 1)
+        return 1;
+    int jakobi = calc_jacobsthal(iter - 1, size) + 2 * calc_jacobsthal(iter - 2, size);
+    if (jakobi >= size)
+        jakobi = calc_jacobsthal(iter + 1, size);
+    return jakobi;
+}
+
 template <class Type, class Pair>
 void PmergeMe<Type, Pair>::insertionSort() {
   if (this->size_ == 1) {
@@ -59,23 +86,22 @@ void PmergeMe<Type, Pair>::insertionSort() {
        ++iter) {
     this->cont_.push_back((*iter).second);
   }
-  for (typename Pair::iterator pair_iter = start;
-       pair_iter != this->pair_cont_.end(); ++pair_iter) {
-    typename Type::iterator insert_iter = this->cont_.begin();
-    while (insert_iter != this->cont_.end() &&
-           (*insert_iter) < (*pair_iter).first) {
-      insert_iter++;
-    }
-    if (insert_iter != this->cont_.end())
-      this->cont_.insert(insert_iter, (*pair_iter).first);
+  this->cont_.insert(this->cont_.begin(), this->pair_cont_[0].first);
+
+  unsigned int size = this->pair_cont_.size();
+  for (unsigned int i = 1; i < size; i++){
+    //unsigned int jacobsthal = calc_jacobsthal(i, size);
+    unsigned int jacobsthal = size - 1;
+    unsigned int index = binarySearch(this->cont_, 0, jacobsthal, this->pair_cont_[jacobsthal].first);
+    this->cont_.insert(this->cont_.begin() + index, this->pair_cont_[jacobsthal].first);
   }
-  if (this->leftover_ == -1) return;
-  typename Type::iterator insert_iter = this->cont_.begin();
-  while (*insert_iter < this->leftover_ && insert_iter != this->cont_.end()) {
-    insert_iter++;
+  if (this->leftover_ != -1) {
+    int leftover_index;
+    leftover_index = binarySearch(this->cont_, 0, this->cont_.size(), this->leftover_);
+    this->cont_.insert(this->cont_.begin() + leftover_index, this->leftover_);
   }
-  this->cont_.insert(insert_iter, this->leftover_);
 }
+
 
 template <class Type, class Pair>
 void PmergeMe<Type, Pair>::checkDuplicate(int new_nb) const {

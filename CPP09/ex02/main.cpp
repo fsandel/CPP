@@ -17,18 +17,18 @@ int main(int argc, char *argv[]) {
                                                                           argv);
     PmergeMe<std::deque<int>, std::deque<std::pair<int, int> > > deque(argc,
                                                                        argv);
-    PmergeMe<std::list<int>, std::list<std::pair<int, int> > > list(argc, argv);
+    //PmergeMe<std::list<int>, std::list<std::pair<int, int> > > list(argc, argv);
 
     vector.sort();
     deque.sort();
-    list.sort();
+    //list.sort();
 
     std::cout << "Before: " << argv + 1 << std::endl;
     std::cout << "After:  " << vector.getCont() << std::endl;
 
     vector.log("std::vector  ");
     deque.log("std::deque   ");
-    list.log("std::list    ");
+    //list.log("std::list    ");
     trySet(argc, argv);
     tryMultiSet(argc, argv);
   } catch (std::exception &e) {
