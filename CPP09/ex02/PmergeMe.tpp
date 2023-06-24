@@ -94,19 +94,20 @@ void PmergeMe<Type, Pair>::insertionSort() {
        ++iter) {
     this->cont_.push_back((*iter).second);
   }
-  this->cont_.insert(this->cont_.begin(), this->pair_cont_[0].first);
 
-  unsigned int size = this->pair_cont_.size();
-  for (unsigned int i = 1; i < size; i++){
-    unsigned int jacobsthal = this->jacobsthal_[i];
-    unsigned int index = binarySearch(this->cont_, 0, size + i - 1, this->pair_cont_[jacobsthal].first);
-    this->cont_.insert(this->cont_.begin() + index , this->pair_cont_[jacobsthal].first);
-  }
-  if (this->leftover_ != -1) {
-    int leftover_index;
-    leftover_index = binarySearch(this->cont_, 0, this->cont_.size() - 1, this->leftover_);
-    this->cont_.insert(this->cont_.begin() + leftover_index, this->leftover_);
-  }
+  // unsigned int size = this->pair_cont_.size();
+  // for (unsigned int i = 0; i < size; i++){
+  //   unsigned int jacobsthal = this->jacobsthal_[i];
+  //   unsigned int index = binarySearch(this->cont_, 0, this->cont_.size(), this->pair_cont_[jacobsthal].first);
+  //   this->cont_.insert(this->cont_.begin() + index, this->pair_cont_[jacobsthal].first);
+  // }
+  //this->cont_.insert(this->cont_.begin(), this->pair_cont_[0].first);
+  std::cout << "first el: "<< this->pair_cont_[0].first << "  "<< this->pair_cont_[0].second<< std::endl;
+  // if (this->leftover_ != -1) {
+    // int leftover_index;
+    // leftover_index = binarySearch(this->cont_, 1, this->cont_.size() - 1, this->leftover_);
+    // this->cont_.insert(this->cont_.begin() + leftover_index, this->leftover_);
+  // }
 }
 
 

@@ -47,23 +47,23 @@ int main(int argc, char *argv[]) {
     if (argc == 1) return 0;
     PmergeMe<std::vector<int>, std::vector<std::pair<int, int> > > vector(argc,
                                                                           argv);
-    PmergeMe<std::deque<int>, std::deque<std::pair<int, int> > > deque(argc,
-                                                                       argv);
+    //PmergeMe<std::deque<int>, std::deque<std::pair<int, int> > > deque(argc,
+    //                                                                   argv);
     //PmergeMe<std::list<int>, std::list<std::pair<int, int> > > list(argc, argv);
 
     vector.sort();
-    deque.sort();
+    //deque.sort();
     //list.sort();
 
     std::cout << "Before: " << argv + 1 << std::endl;
     std::cout << "After:  " << vector.getCont() << std::endl;
 
     checkSorting(vector.getCont());
-    vector.log("std::vector  ");
-    deque.log("std::deque   ");
+    //vector.log("std::vector  ");
+    //deque.log("std::deque   ");
     //list.log("std::list    ");
-    trySet(argc, argv);
-    tryMultiSet(argc, argv);
+    //trySet(argc, argv);
+    //tryMultiSet(argc, argv);
   } catch (std::exception &e) {
     std::cout << "Error: " << e.what() << std::endl;
   }

@@ -1,0 +1,64 @@
+malloc(): corrupted top size
+malloc(): corrupted top size
+malloc(): corrupted top size
+malloc(): corrupted top size
+malloc(): corrupted top size
+malloc(): corrupted top size
+double free or corruption (out)
+double free or corruption (out)
+malloc(): corrupted top size
+malloc(): corrupted top size
+malloc(): corrupted top size
+malloc(): corrupted top size
+malloc(): corrupted top size
+malloc(): corrupted top size
+malloc(): corrupted top size
+malloc(): corrupted top size
+malloc(): corrupted top size
+PmergeMe: malloc.c:2617: sysmalloc: Assertion `(old_top == initial_top (av) && old_size == 0) || ((unsigned long) (old_size) >= MINSIZE && prev_inuse (old_top) && ((unsigned long) old_end & (pagesize - 1)) == 0)' failed.
+malloc(): corrupted top size
+malloc(): corrupted top size
+PmergeMe: malloc.c:2617: sysmalloc: Assertion `(old_top == initial_top (av) && old_size == 0) || ((unsigned long) (old_size) >= MINSIZE && prev_inuse (old_top) && ((unsigned long) old_end & (pagesize - 1)) == 0)' failed.
+double free or corruption (out)
+double free or corruption (out)
+free(): invalid size
+double free or corruption (out)
+double free or corruption (out)
+free(): invalid size
+double free or corruption (out)
+free(): invalid size
+PmergeMe: malloc.c:2617: sysmalloc: Assertion `(old_top == initial_top (av) && old_size == 0) || ((unsigned long) (old_size) >= MINSIZE && prev_inuse (old_top) && ((unsigned long) old_end & (pagesize - 1)) == 0)' failed.
+malloc(): corrupted top size
+malloc(): corrupted top size
+PmergeMe: malloc.c:2617: sysmalloc: Assertion `(old_top == initial_top (av) && old_size == 0) || ((unsigned long) (old_size) >= MINSIZE && prev_inuse (old_top) && ((unsigned long) old_end & (pagesize - 1)) == 0)' failed.
+malloc(): corrupted top size
+malloc(): corrupted top size
+malloc(): corrupted top size
+malloc(): corrupted top size
+malloc(): corrupted top size
+malloc(): corrupted top size
+malloc(): corrupted top size
+malloc(): corrupted top size
+PmergeMe: malloc.c:2617: sysmalloc: Assertion `(old_top == initial_top (av) && old_size == 0) || ((unsigned long) (old_size) >= MINSIZE && prev_inuse (old_top) && ((unsigned long) old_end & (pagesize - 1)) == 0)' failed.
+malloc(): corrupted top size
+PmergeMe: malloc.c:2617: sysmalloc: Assertion `(old_top == initial_top (av) && old_size == 0) || ((unsigned long) (old_size) >= MINSIZE && prev_inuse (old_top) && ((unsigned long) old_end & (pagesize - 1)) == 0)' failed.
+malloc(): corrupted top size
+malloc(): corrupted top size
+malloc(): corrupted top size
+malloc(): corrupted top size
+malloc(): corrupted top size
+malloc(): corrupted top size
+malloc(): corrupted top size
+malloc(): corrupted top size
+malloc(): corrupted top size
+malloc(): corrupted top size
+malloc(): corrupted top size
+malloc(): corrupted top size
+malloc(): corrupted top size
+malloc(): corrupted top size
+malloc(): corrupted top size
+malloc(): corrupted top size
+malloc(): corrupted top size
+malloc(): corrupted top size
+malloc(): corrupted top size
+malloc(): corrupted top size
