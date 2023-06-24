@@ -17,6 +17,7 @@
 #include "MergeSort.h"
 #include "pair_operator.h"
 #include "rules.h"
+#include "Jacobsthal.hpp"
 
 template <class Type, class Pair>
 class PmergeMe {
@@ -39,6 +40,7 @@ class PmergeMe {
   Pair pair_cont_;
   Type cont_;
   Type before_;
+  Type jacobsthal_;
 
   PmergeMe();
   PmergeMe(const PmergeMe& obj);

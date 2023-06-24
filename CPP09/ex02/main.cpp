@@ -10,9 +10,41 @@
 
 void trySet(int argc, char *argv[]);
 void tryMultiSet(int argc, char *argv[]);
+int calc_jacobsthal(int iter, int size);
+
+#include <algorithm>
+
+template <typename Container>
+void checkSorting(const Container& arr) {
+    Container sortedArr = arr;
+    std::sort(sortedArr.begin(), sortedArr.end());
+
+    if (arr == sortedArr) {
+        std::cout << "The container is sorted." << std::endl;
+    } else {
+        std::cout << "The container is not sorted." << std::endl;
+    }
+}
+
+int getNewIndexWithJacobsthal(int originalIndex) {
+    int jacobsthalPrevPrev = 0;
+    int jacobsthalPrev = 1;
+    int currentIndex = 2;
+
+    while (true) {
+        int jacobsthalNumber = jacobsthalPrev + 2 * jacobsthalPrevPrev;
+        if (jacobsthalNumber > originalIndex)
+            return currentIndex - 1;
+
+        jacobsthalPrevPrev = jacobsthalPrev;
+        jacobsthalPrev = jacobsthalNumber;
+        currentIndex++;
+    }
+}
 
 int main(int argc, char *argv[]) {
   try {
+    if (argc == 1) return 0;
     PmergeMe<std::vector<int>, std::vector<std::pair<int, int> > > vector(argc,
                                                                           argv);
     PmergeMe<std::deque<int>, std::deque<std::pair<int, int> > > deque(argc,
@@ -26,6 +58,7 @@ int main(int argc, char *argv[]) {
     std::cout << "Before: " << argv + 1 << std::endl;
     std::cout << "After:  " << vector.getCont() << std::endl;
 
+    checkSorting(vector.getCont());
     vector.log("std::vector  ");
     deque.log("std::deque   ");
     //list.log("std::list    ");

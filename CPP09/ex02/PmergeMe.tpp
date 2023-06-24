@@ -25,6 +25,7 @@ PmergeMe<Type, Pair>::PmergeMe(int argc, char **argv) {
   this->sortTime_ = 0;
   this->size_ = argc - 1;
   this->inputTime_ = static_cast<double>(clock() - start) / CLOCKS_PER_SEC;
+  this->jacobsthal_ = JacobsthalContainer<Type>(this->size_ / 2);
 }
 
 template <class Type, class Pair>
@@ -54,25 +55,32 @@ int binarySearch(const Container& arr, int left, int right, const int target) {
         int mid = left + (right - left) / 2;
 
         if (arr[mid] == target)
-            return mid;  // Found the insertion position
-
-        if (arr[mid] < target)
-            left = mid + 1;  // Search in the right half
+            return mid;
+        if (arr[mid] > target)
+            right = mid - 1;
         else
-            right = mid - 1;  // Search in the left half
+            left = mid + 1;
     }
-    return 0;
+    return left;
 }
+
 
 int calc_jacobsthal(int iter, int size) {
     if (iter == 0)
         return 0;
     if (iter == 1)
         return 1;
-    int jakobi = calc_jacobsthal(iter - 1, size) + 2 * calc_jacobsthal(iter - 2, size);
-    if (jakobi >= size)
-        jakobi = calc_jacobsthal(iter + 1, size);
-    return jakobi;
+    (void)size;
+    int prevPrev = 0;
+    int prev = 1;
+
+    for (int i = 2; i <= iter; ++i) {
+        int current = prev + 2 * prevPrev;
+        prevPrev = prev;
+        prev = current;
+    }
+
+    return prev;
 }
 
 template <class Type, class Pair>
@@ -90,14 +98,13 @@ void PmergeMe<Type, Pair>::insertionSort() {
 
   unsigned int size = this->pair_cont_.size();
   for (unsigned int i = 1; i < size; i++){
-    //unsigned int jacobsthal = calc_jacobsthal(i, size);
-    unsigned int jacobsthal = size - 1;
-    unsigned int index = binarySearch(this->cont_, 0, jacobsthal, this->pair_cont_[jacobsthal].first);
-    this->cont_.insert(this->cont_.begin() + index, this->pair_cont_[jacobsthal].first);
+    unsigned int jacobsthal = this->jacobsthal_[i];
+    unsigned int index = binarySearch(this->cont_, 0, size + i - 1, this->pair_cont_[jacobsthal].first);
+    this->cont_.insert(this->cont_.begin() + index , this->pair_cont_[jacobsthal].first);
   }
   if (this->leftover_ != -1) {
     int leftover_index;
-    leftover_index = binarySearch(this->cont_, 0, this->cont_.size(), this->leftover_);
+    leftover_index = binarySearch(this->cont_, 0, this->cont_.size() - 1, this->leftover_);
     this->cont_.insert(this->cont_.begin() + leftover_index, this->leftover_);
   }
 }
