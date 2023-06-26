@@ -3,8 +3,6 @@
 
 #include "PmergeMe.hpp"
 
-extern int counter;
-
 template <class Type, class Pair>
 PmergeMe<Type, Pair>::PmergeMe(int argc, char **argv) {
   char *end_ptr = NULL;
@@ -51,45 +49,6 @@ void PmergeMe<Type, Pair>::fillPairContainer() {
   }
 }
 
-template <typename Container>
-int binarySearch(const Container &arr, int left, int right, const int target) {
-  while (left <= right) {
-    int mid = left + (right - left) / 2;
-    counter++;
-    counter++;
-    if (arr[mid] == target) return mid;
-    if (arr[mid] > target)
-      right = mid - 1;
-    else
-      left = mid + 1;
-  }
-  return left;
-}
-
-template <class Type, class Pair>
-void PmergeMe<Type, Pair>::insertionSort() {
-  if (this->size_ == 1) {
-    this->cont_.push_back(this->leftover_);
-    return;
-  }
-  typename Pair::iterator start = this->pair_cont_.begin();
-  for (typename Pair::iterator iter = start; iter != this->pair_cont_.end();
-       ++iter) {
-    counter++;
-    this->cont_.push_back((*iter).second);
-  }
-
-  this->cont_.insert(this->cont_.begin(), this->pair_cont_[0].first);
-  unsigned int size = this->pair_cont_.size();
-  for (unsigned int i = 1; i < size; ++i) {
-    unsigned int jacobsthal = this->jacobsthal_[i];
-    unsigned int index = binarySearch(this->cont_, 0, i + jacobsthal - 1,
-                                      this->pair_cont_[jacobsthal].first);
-    this->cont_.insert(this->cont_.begin() + index,
-                       this->pair_cont_[jacobsthal].first);
-  }
-}
-
 template <class Type, class Pair>
 void PmergeMe<Type, Pair>::checkDuplicate(int new_nb) const {
   if (DUPLICATE)
@@ -105,7 +64,8 @@ void PmergeMe<Type, Pair>::sort() {
 
   mergeSort<typename Pair::iterator, Pair>(this->pair_cont_.begin(),
                                            this->pair_cont_.end());
-  this->insertionSort();
+  insertionSort<Type, Pair>(this->cont_, this->pair_cont_, this->leftover_,
+                            this->jacobsthal_);
 
   this->sortTime_ = static_cast<double>(clock() - start) / CLOCKS_PER_SEC;
 }

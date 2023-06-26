@@ -1,3 +1,4 @@
+#include <algorithm>
 #include <cmath>
 #include <deque>
 #include <iostream>
@@ -12,9 +13,6 @@
 void trySet(int argc, char *argv[]);
 void tryMultiSet(int argc, char *argv[]);
 int calc_jacobsthal(int iter, int size);
-
-int counter;
-#include <algorithm>
 
 template <typename Container>
 void checkSorting(const Container &arr) {
@@ -44,7 +42,6 @@ int getNewIndexWithJacobsthal(int originalIndex) {
 }
 
 int main(int argc, char *argv[]) {
-  counter = 0;
   try {
     if (argc == 1) return 0;
     PmergeMe<std::vector<int>, std::vector<std::pair<int, int> > > vector(argc,
@@ -58,13 +55,13 @@ int main(int argc, char *argv[]) {
     // deque.sort();
     // list.sort();
 
-    // std::cout << "Before: " << argv + 1 << std::endl;
-    // std::cout << "After:  " << vector.getCont() << std::endl;
+    std::cout << "Before: " << argv + 1 << std::endl;
+    std::cout << "After:  " << vector.getCont() << std::endl;
 
-    // checkSorting(vector.getCont());
-    std::cout << "Size: " << argc - 1 << ",   Counter: " << counter
-              << ",   Nln(N): " << (argc - 1) * log(argc - 1) << std::endl;
-    // vector.log("std::vector  ");
+    checkSorting(vector.getCont());
+    // std::cout << "Size: " << argc - 1 << ",   Counter: " << counter
+    //           << ",   Nln(N): " << (argc - 1) * log(argc - 1) << std::endl;
+    vector.log("std::vector  ");
     // deque.log("std::deque   ");
     // list.log("std::list    ");
     // trySet(argc, argv);
