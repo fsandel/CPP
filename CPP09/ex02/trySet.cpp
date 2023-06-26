@@ -1,9 +1,9 @@
 #include <climits>
+#include <cstdlib>
 #include <ctime>
 #include <iostream>
 #include <set>
 #include <stdexcept>
-#include <cstdlib>
 
 #include "rules.h"
 

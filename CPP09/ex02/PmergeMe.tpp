@@ -66,22 +66,6 @@ int binarySearch(const Container &arr, int left, int right, const int target) {
   return left;
 }
 
-int calc_jacobsthal(int iter, int size) {
-  if (iter == 0) return 0;
-  if (iter == 1) return 1;
-  (void)size;
-  int prevPrev = 0;
-  int prev = 1;
-
-  for (int i = 2; i <= iter; ++i) {
-    int current = prev + 2 * prevPrev;
-    prevPrev = prev;
-    prev = current;
-  }
-
-  return prev;
-}
-
 template <class Type, class Pair>
 void PmergeMe<Type, Pair>::insertionSort() {
   if (this->size_ == 1) {
@@ -91,7 +75,7 @@ void PmergeMe<Type, Pair>::insertionSort() {
   typename Pair::iterator start = this->pair_cont_.begin();
   for (typename Pair::iterator iter = start; iter != this->pair_cont_.end();
        ++iter) {
-        counter++;
+    counter++;
     this->cont_.push_back((*iter).second);
   }
 

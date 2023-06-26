@@ -14,10 +14,10 @@
 #include <utility>
 #include <vector>
 
+#include "Jacobsthal.hpp"
 #include "MergeSort.h"
 #include "pair_operator.h"
 #include "rules.h"
-#include "Jacobsthal.hpp"
 
 template <class Type, class Pair>
 class PmergeMe {
