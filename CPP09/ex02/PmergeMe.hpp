@@ -15,7 +15,7 @@
 
 #include "InsertionSort.hpp"
 #include "Jacobsthal.hpp"
-#include "MergeSort.h"
+#include "MergeSort.hpp"
 #include "pair_operator.h"
 #include "rules.h"
 

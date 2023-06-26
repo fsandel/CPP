@@ -25,18 +25,6 @@ std::ostream& operator<<(std::ostream& os, std::deque<int>& obj) {
   return os;
 }
 
-std::ostream& operator<<(std::ostream& os, std::list<int>& obj) {
-  for (std::list<int>::iterator iter = obj.begin(); iter != obj.end(); iter++) {
-    if (iter != obj.begin()) os << " ";
-    os << *iter;
-    if (SHORT && std::distance(obj.begin(), iter) > 2 && obj.size() > 4) {
-      os << " [...]";
-      break;
-    }
-  }
-  return os;
-}
-
 std::ostream& operator<<(std::ostream& os, char** obj) {
   int size = 0;
   while (obj[size]) size++;
