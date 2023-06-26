@@ -4,6 +4,7 @@
 #include <queue>
 #include <set>
 #include <vector>
+#include <cmath>
 
 #include "PmergeMe.h"
 #include "rules.h"
@@ -12,6 +13,7 @@ void trySet(int argc, char *argv[]);
 void tryMultiSet(int argc, char *argv[]);
 int calc_jacobsthal(int iter, int size);
 
+int counter;
 #include <algorithm>
 
 template <typename Container>
@@ -43,6 +45,7 @@ int getNewIndexWithJacobsthal(int originalIndex) {
 }
 
 int main(int argc, char *argv[]) {
+  counter = 0;
   try {
     if (argc == 1) return 0;
     PmergeMe<std::vector<int>, std::vector<std::pair<int, int> > > vector(argc,
@@ -58,7 +61,8 @@ int main(int argc, char *argv[]) {
     //std::cout << "Before: " << argv + 1 << std::endl;
     //std::cout << "After:  " << vector.getCont() << std::endl;
 
-    checkSorting(vector.getCont());
+    //checkSorting(vector.getCont());
+    std::cout << "Size: " << argc - 1 << ",   Counter: " << counter  << ",   Nln(N): " << (argc - 1) * log(argc - 1) << std::endl;
     //vector.log("std::vector  ");
     //deque.log("std::deque   ");
     //list.log("std::list    ");

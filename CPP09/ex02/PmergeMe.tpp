@@ -3,6 +3,8 @@
 
 #include "PmergeMe.hpp"
 
+extern int counter;
+
 template <class Type, class Pair>
 PmergeMe<Type, Pair>::PmergeMe(int argc, char **argv) {
   char *end_ptr = NULL;
@@ -53,7 +55,8 @@ template <typename Container>
 int binarySearch(const Container &arr, int left, int right, const int target) {
   while (left <= right) {
     int mid = left + (right - left) / 2;
-
+    counter++;
+    counter++;
     if (arr[mid] == target) return mid;
     if (arr[mid] > target)
       right = mid - 1;
@@ -88,6 +91,7 @@ void PmergeMe<Type, Pair>::insertionSort() {
   typename Pair::iterator start = this->pair_cont_.begin();
   for (typename Pair::iterator iter = start; iter != this->pair_cont_.end();
        ++iter) {
+        counter++;
     this->cont_.push_back((*iter).second);
   }
 

@@ -4,6 +4,7 @@
 #include <iterator>
 
 #include "pair_operator.h"
+extern int counter;
 
 template <typename Iterator, typename Sequence>
 void merge(Iterator begin, Iterator mid, Iterator end) {
@@ -15,6 +16,8 @@ void merge(Iterator begin, Iterator mid, Iterator end) {
   Iterator mergeIt = begin;
 
   while (leftIt != left.end() && rightIt != right.end()) {
+    counter++;
+    counter++;
     if (*leftIt <= *rightIt) {
       *mergeIt = *leftIt;
       ++leftIt;
@@ -26,12 +29,14 @@ void merge(Iterator begin, Iterator mid, Iterator end) {
   }
 
   while (leftIt != left.end()) {
+    counter++;
     *mergeIt = *leftIt;
     ++leftIt;
     ++mergeIt;
   }
 
   while (rightIt != right.end()) {
+    counter++;
     *mergeIt = *rightIt;
     ++rightIt;
     ++mergeIt;
@@ -41,6 +46,7 @@ void merge(Iterator begin, Iterator mid, Iterator end) {
 template <typename Iterator, typename Sequence>
 void mergeSort(Iterator first, Iterator last) {
   if (std::distance(first, last) > 1) {
+    counter++;
     Iterator mid = first;
     std::advance(mid, std::distance(first, last) / 2);
     mergeSort<Iterator, Sequence>(first, mid);
