@@ -8,7 +8,6 @@
 #include <deque>
 #include <iostream>
 #include <iterator>
-#include <list>
 #include <set>
 #include <stdexcept>
 #include <utility>
