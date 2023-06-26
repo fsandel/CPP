@@ -55,8 +55,8 @@ int main(int argc, char *argv[]) {
     //deque.sort();
     //list.sort();
 
-    std::cout << "Before: " << argv + 1 << std::endl;
-    std::cout << "After:  " << vector.getCont() << std::endl;
+    //std::cout << "Before: " << argv + 1 << std::endl;
+    //std::cout << "After:  " << vector.getCont() << std::endl;
 
     checkSorting(vector.getCont());
     //vector.log("std::vector  ");

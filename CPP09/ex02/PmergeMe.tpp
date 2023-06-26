@@ -50,37 +50,33 @@ void PmergeMe<Type, Pair>::fillPairContainer() {
 }
 
 template <typename Container>
-int binarySearch(const Container& arr, int left, int right, const int target) {
-    while (left <= right) {
-        int mid = left + (right - left) / 2;
+int binarySearch(const Container &arr, int left, int right, const int target) {
+  while (left <= right) {
+    int mid = left + (right - left) / 2;
 
-        if (arr[mid] == target)
-            return mid;
-        if (arr[mid] > target)
-            right = mid - 1;
-        else
-            left = mid + 1;
-    }
-    return left;
+    if (arr[mid] == target) return mid;
+    if (arr[mid] > target)
+      right = mid - 1;
+    else
+      left = mid + 1;
+  }
+  return left;
 }
 
-
 int calc_jacobsthal(int iter, int size) {
-    if (iter == 0)
-        return 0;
-    if (iter == 1)
-        return 1;
-    (void)size;
-    int prevPrev = 0;
-    int prev = 1;
+  if (iter == 0) return 0;
+  if (iter == 1) return 1;
+  (void)size;
+  int prevPrev = 0;
+  int prev = 1;
 
-    for (int i = 2; i <= iter; ++i) {
-        int current = prev + 2 * prevPrev;
-        prevPrev = prev;
-        prev = current;
-    }
+  for (int i = 2; i <= iter; ++i) {
+    int current = prev + 2 * prevPrev;
+    prevPrev = prev;
+    prev = current;
+  }
 
-    return prev;
+  return prev;
 }
 
 template <class Type, class Pair>
@@ -95,21 +91,16 @@ void PmergeMe<Type, Pair>::insertionSort() {
     this->cont_.push_back((*iter).second);
   }
 
-  // unsigned int size = this->pair_cont_.size();
-  // for (unsigned int i = 0; i < size; i++){
-  //   unsigned int jacobsthal = this->jacobsthal_[i];
-  //   unsigned int index = binarySearch(this->cont_, 0, this->cont_.size(), this->pair_cont_[jacobsthal].first);
-  //   this->cont_.insert(this->cont_.begin() + index, this->pair_cont_[jacobsthal].first);
-  // }
-  //this->cont_.insert(this->cont_.begin(), this->pair_cont_[0].first);
-  std::cout << "first el: "<< this->pair_cont_[0].first << "  "<< this->pair_cont_[0].second<< std::endl;
-  // if (this->leftover_ != -1) {
-    // int leftover_index;
-    // leftover_index = binarySearch(this->cont_, 1, this->cont_.size() - 1, this->leftover_);
-    // this->cont_.insert(this->cont_.begin() + leftover_index, this->leftover_);
-  // }
+  this->cont_.insert(this->cont_.begin(), this->pair_cont_[0].first);
+  unsigned int size = this->pair_cont_.size();
+  for (unsigned int i = 1; i < size; ++i) {
+    unsigned int jacobsthal = this->jacobsthal_[i];
+    unsigned int index = binarySearch(this->cont_, 0, i + jacobsthal - 1,
+                                      this->pair_cont_[jacobsthal].first);
+    this->cont_.insert(this->cont_.begin() + index,
+                       this->pair_cont_[jacobsthal].first);
+  }
 }
-
 
 template <class Type, class Pair>
 void PmergeMe<Type, Pair>::checkDuplicate(int new_nb) const {
