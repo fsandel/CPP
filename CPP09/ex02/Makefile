@@ -3,7 +3,7 @@ CC				=	c++
 RM				=	rm -f
 CPPFLAGS	=	-std=c++98 -Wall -Wextra -Werror -fsanitize=address -g
 
-SRC				=	main.cpp pair_operator.cpp trySet.cpp Jacobsthal.cpp PmergeMe_stream.cpp
+SRC				=	main.cpp pair_operator.cpp trySet.cpp PmergeMe_stream.cpp
 
 OBJ				=	$(SRC:.cpp=.o)
 

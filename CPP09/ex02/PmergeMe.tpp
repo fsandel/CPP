@@ -1,6 +1,7 @@
 #ifndef PMERGEME_TPP_
 #define PMERGEME_TPP_
 
+#include "Jacobsthal.hpp"
 #include "PmergeMe.hpp"
 
 template <class Type, class Pair>
@@ -64,8 +65,7 @@ void PmergeMe<Type, Pair>::sort() {
 
   mergeSort<typename Pair::iterator, Pair>(this->pair_cont_.begin(),
                                            this->pair_cont_.end());
-  insertionSort<Type, Pair>(this->cont_, this->pair_cont_, this->leftover_,
-                            this->jacobsthal_);
+  this->insertionSort();
 
   this->sortTime_ = static_cast<double>(clock() - start) / CLOCKS_PER_SEC;
 }
@@ -84,6 +84,50 @@ double PmergeMe<Type, Pair>::getTime() const {
 template <class Type, class Pair>
 Type &PmergeMe<Type, Pair>::getCont() {
   return this->cont_;
+}
+
+//  ----------------------------------------------------------------------------
+//  Insertion Sort starting here
+template <typename Container>
+int binarySearch(const Container &arr, int left, int right, const int target) {
+  while (left <= right) {
+    int mid = left + (right - left) / 2;
+    if (arr[mid] == target) return mid;
+    if (arr[mid] > target)
+      right = mid - 1;
+    else
+      left = mid + 1;
+  }
+  return left;
+}
+
+template <class Type, class Pair>
+void PmergeMe<Type, Pair>::insertionSort() {
+  if (this->pair_cont_.size() == 0) {
+    this->cont_.push_back(this->leftover_);
+    return;
+  }
+
+  for (typename Pair::iterator iter = this->pair_cont_.begin();
+       iter != this->pair_cont_.end(); ++iter)
+    this->cont_.push_back((*iter).second);
+
+  this->cont_.insert(this->cont_.begin(), this->pair_cont_[0].first);
+
+  unsigned int size = this->pair_cont_.size();
+  for (unsigned int i = 1; i < size; ++i) {
+    unsigned int jacobsthal_index = this->jacobsthal_[i];
+    unsigned int index = binarySearch(this->cont_, 0, i + jacobsthal_index - 1,
+                                      this->pair_cont_[jacobsthal_index].first);
+    this->cont_.insert(this->cont_.begin() + index,
+                       this->pair_cont_[jacobsthal_index].first);
+  }
+
+  if (this->leftover_ != -1) {
+    unsigned int index =
+        binarySearch(this->cont_, 0, this->cont_.size() - 1, this->leftover_);
+    this->cont_.insert(this->cont_.begin() + index, this->leftover_);
+  }
 }
 
 #endif  // PMERGEME_TPP_

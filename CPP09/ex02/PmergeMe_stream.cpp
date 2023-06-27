@@ -1,4 +1,9 @@
-#include "PmergeMe.hpp"
+#include <deque>
+#include <iostream>
+#include <iterator>
+#include <vector>
+
+#include "rules.h"
 
 std::ostream& operator<<(std::ostream& os, std::vector<int>& obj) {
   for (std::vector<int>::iterator iter = obj.begin(); iter < obj.end();

@@ -37,7 +37,7 @@ int main(int argc, char *argv[]) {
     std::cout << "Before: " << argv + 1 << std::endl;
     std::cout << "After:  " << vector.getCont() << std::endl;
 
-    //checkSorting(vector.getCont());
+    // checkSorting(vector.getCont());
     vector.log("std::vector  ");
     deque.log("std::deque   ");
     trySet(argc, argv);

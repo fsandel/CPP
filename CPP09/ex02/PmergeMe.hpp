@@ -13,7 +13,6 @@
 #include <utility>
 #include <vector>
 
-#include "InsertionSort.hpp"
 #include "Jacobsthal.hpp"
 #include "MergeSort.hpp"
 #include "pair_operator.h"
@@ -48,6 +47,8 @@ class PmergeMe {
 
   void checkDuplicate(int new_nb) const;
   void fillPairContainer();
+
+  void insertionSort();
 };
 
 #endif  // PMERGEME_HPP_

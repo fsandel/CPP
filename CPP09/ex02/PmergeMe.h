@@ -3,6 +3,6 @@
 
 #include "PmergeMe.hpp"
 #include "PmergeMe.tpp"
-#include "PmergeMe_stream.tpp"
+#include "PmergeMe_stream.hpp"
 
 #endif  // PMERGEME_H_
