@@ -40,8 +40,9 @@ void PmergeMe<Type, Pair>::fillPairContainer() {
       tmp.first = *iter;
     else {
       tmp.second = *iter;
-      if (tmp.first > tmp.second) std::swap(tmp.first, tmp.second);
-      this->pair_cont_.push_back(tmp);
+      if (tmp.first > tmp.second) std::swap(tmp.first, tmp.second); {
+        this->pair_cont_.push_back(tmp);
+      }
     }
     counter++;
   }
