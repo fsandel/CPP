@@ -31,7 +31,7 @@ void BitcoinExchange::printDatabase() {
 float BitcoinExchange::searchValue(int date) {
   std::map<int, float>::iterator iter = this->database_.begin();
   float value = -1;
-  while ((*iter).first <= date) {
+  while (iter != this->database_.end() && (*iter).first <= date) {
     value = (*iter).second;
     iter++;
   }
