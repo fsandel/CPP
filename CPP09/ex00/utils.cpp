@@ -7,6 +7,8 @@ int DateToInt(std::string str) {
   long year = std::strtol(str.c_str(), &end_ptr, 10);
   if (!end_ptr) throw std::runtime_error("invalid date in data");
   if (end_ptr[0] != '-') throw std::runtime_error("invalid date in data");
+  if (year > 9999 || year < 999)
+    throw std::runtime_error("invalid year in data");
 
   str = end_ptr + 1;
   long month = std::strtol(str.c_str(), &end_ptr, 10);
