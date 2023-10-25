@@ -20,6 +20,8 @@ Ice::~Ice() {}
 
 Ice& Ice::operator=(const Ice&) { return *this; }
 
+void* Ice::operator new(std::size_t size) { return nullptr; }
+
 AMateria* Ice::clone() const { return new Ice(*this); }
 
 void Ice::use(ICharacter& target) {

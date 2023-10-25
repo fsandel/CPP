@@ -22,6 +22,8 @@ class Ice : public AMateria {
   ~Ice();
   Ice& operator=(const Ice& obj);
 
+  void* operator new(std::size_t size);
+
   AMateria* clone() const;
   void use(ICharacter& target);
 };
