@@ -19,31 +19,16 @@
 #include "MateriaSource/IMateriaSource.hpp"
 #include "MateriaSource/MateriaSource.hpp"
 
-int main_in() {
+int main() {
   IMateriaSource* src = new MateriaSource();
   src->learnMateria(new Ice());
-  src->learnMateria(new Cure());
-  AMateria* tmp2 = new Ice();
-  delete (tmp2);
-  ICharacter* me = new Character("me");
+  Character me("me");
   AMateria* tmp;
   tmp = src->createMateria("ice");
-  me->equip(tmp);
-  tmp = src->createMateria("cure");
-  tmp = src->createMateria("cure");
-  tmp = src->createMateria("cure");
-
-  me->equip(tmp);
-  ICharacter* bob = new Character("bob");
-  me->use(0, *bob);
-  me->use(1, *bob);
-  delete bob;
-  delete me;
+  me.equip(tmp);
+  Character bob("bob");
+  bob = me;
+  bob.use(0, bob);
   delete src;
   return 0;
-}
-
-int main(void) {
-  main_in();
-  system("leaks a.out");
 }

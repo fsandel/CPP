@@ -13,21 +13,32 @@
 #include "Character.hpp"
 
 Character::Character() {
-  for (int i = 0; i < 4; i++) this->slot[i] = NULL;
+  for (int i = 0; i < 4; i++) {
+    this->slot[i] = NULL;
+  }
 }
 
-Character::Character(std::string name) { this->_name = name; }
+Character::Character(std::string name) : _name(name) {}
 
 Character::~Character() {
-  for (int i = 0; i < 4; i++) delete this->slot[i];
+  for (int i = 0; i < 4; i++)
+    if (this->slot[i]) delete this->slot[i];
 }
 
 Character& Character::operator=(const Character& obj) {
-  for (int i = 0; i < 4; i++) {
-    delete this->slot[i];
-    if (this->slot[i]) this->slot[i] = obj.slot[i]->clone();
-  };
-  return (*this);
+  this->_name = obj._name;
+  for (int i = 0; i < 4; ++i) {
+    if (this->slot[i]) {
+      //   delete this->slot[i];
+      this->slot[i] = NULL;
+    }
+    if (obj.slot[i]) {
+      this->slot[i] = obj.slot[i]->clone();
+    } else {
+      this->slot[i] = NULL;
+    }
+  }
+  return *this;
 }
 
 Character::Character(Character const& obj) { *this = obj; }
@@ -36,8 +47,12 @@ std::string const& Character::getName() const { return (this->_name); }
 
 void Character::equip(AMateria* m) {
   if (!m) return;
-  for (int i = 0; i < 4; i++)
-    if (!slot[i]) return (slot[i] = m, void(0));
+  for (int i = 0; i < 4; i++) {
+    if (!slot[i]) {
+      slot[i] = m->clone();
+      return;
+    }
+  }
 }
 
 void Character::unequip(int idx) {

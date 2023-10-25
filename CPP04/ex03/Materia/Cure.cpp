@@ -20,7 +20,7 @@ Cure& Cure::operator=(const Cure&) { return *this; }
 
 void* Cure::operator new(std::size_t size) {
   void* ptr = ::operator new(size);
-  FLOOR.addMateria((AMateria*)ptr);
+  if (ptr) FLOOR.addMateria((AMateria*)ptr);
   return ptr;
 }
 
@@ -35,6 +35,5 @@ Cure::Cure(const Cure& obj) : AMateria(obj) { *this = obj; }
 AMateria* Cure::clone() const { return new Cure(*this); }
 
 void Cure::use(ICharacter& target) {
-  std::cout << "am here" << std::endl;
   std::cout << "* heals " << target.getName() << "'s wounds *" << std::endl;
 }
