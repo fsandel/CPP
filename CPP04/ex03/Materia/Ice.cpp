@@ -14,11 +14,14 @@
 
 Ice::Ice() {}
 
+Ice::Ice(Ice const& obj) { *this = obj; }
+
 Ice::~Ice() {}
 
-Ice& Ice::operator=(const Ice& obj) {
-  // add rule for copy assignment constructor
-  return (*this);
-}
+Ice& Ice::operator=(const Ice&) { return *this; }
 
-Ice::Ice(Ice const& obj) { *this = obj; }
+AMateria* Ice::clone() const { return new Ice(*this); }
+
+void Ice::use(ICharacter& target) {
+  std::cout << "* shoots an ice bolt at " << target.getName() << " *";
+}

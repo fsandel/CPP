@@ -11,17 +11,17 @@
 /* ************************************************************************** */
 
 #pragma once
+
 #include "../Character/ICharacter.hpp"
 #include "AMateria.hpp"
-
-class AMateria;
 
 class Ice : public AMateria {
  public:
   Ice();
-  ~Ice();
   Ice(Ice const& obj);
+  ~Ice();
   Ice& operator=(const Ice& obj);
 
- private:
+  AMateria* clone() const;
+  void use(ICharacter& target);
 };

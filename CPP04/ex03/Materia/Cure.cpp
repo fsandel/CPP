@@ -16,18 +16,11 @@ Cure::Cure() : AMateria() { this->_type = "cure"; }
 
 Cure::~Cure() {}
 
-Cure& Cure::operator=(const Cure& obj) {
-  // this->_type = obj._type;
-  (void)obj;
-  return (*this);
-}
+Cure& Cure::operator=(const Cure&) { return *this; }
 
-Cure::Cure(const Cure& obj) : AMateria(obj) { *this = obj; }
+Cure::Cure(const Cure& obj) { *this = obj; }
 
-AMateria* Cure::clone() const {
-  AMateria* ret = new Cure(*this);
-  return (ret);
-}
+AMateria* Cure::clone() const { return new Cure(*this); }
 
 void Cure::use(ICharacter& target) {
   std::cout << "* heals " << target.getName() << "'s wounds *" << std::endl;

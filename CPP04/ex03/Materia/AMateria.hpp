@@ -19,25 +19,14 @@ class ICharacter;
 class AMateria {
  public:
   AMateria();
+  AMateria(std::string const& type);
   virtual ~AMateria();
-  AMateria(AMateria const& obj);
   AMateria& operator=(const AMateria& obj);
 
-  std::string const& getType() const;
-
+  std::string const& getType() const;  // Returns the materia type
   virtual AMateria* clone() const = 0;
   virtual void use(ICharacter& target);
 
  protected:
   std::string _type;
 };
-
-// class AMateria2
-// {
-// protected:
-// public:
-// AMateria(std::string const & type);
-// std::string const & getType() const; //Returns the materia type
-// virtual AMateria* clone() const = 0;
-// virtual void use(ICharacter& target);
-// };

@@ -12,18 +12,14 @@
 
 #include "AMateria.hpp"
 
-AMateria::AMateria() {}
+AMateria::AMateria() { this->_type = "base"; }
 
 AMateria::~AMateria() {}
 
-AMateria& AMateria::operator=(const AMateria& obj) {
-  this->_type = obj._type;
-  return (*this);
-}
+AMateria& AMateria::operator=(const AMateria&) { return *this; }
 
-AMateria::AMateria(AMateria const& obj) { *this = obj; }
+AMateria::AMateria(std::string const& type) { this->_type = type; }
 
-std::string const& AMateria::getType() const { return (this->_type); }
+std::string const& AMateria::getType() const { return this->_type; }
 
-AMateria* AMateria::clone() const { return (NULL); }
-void AMateria::use(ICharacter& target) { (void)target; }
+void AMateria::use(ICharacter&) {}
