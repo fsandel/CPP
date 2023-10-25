@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../interface.h"
+#include "ICharacter.hpp"
 
 ICharacter::ICharacter() {}
 
@@ -37,8 +37,11 @@ ICharacter::ICharacter(ICharacter const& obj) { *this = obj; }
 // }
 
 std::string const& ICharacter::getName() const { return (this->_name); }
+
 void ICharacter::equip(AMateria* m) { (void)m; }
+
 void ICharacter::unequip(int idx) { (void)idx; }
+
 void ICharacter::use(int idx, ICharacter& target) {
   (void)idx;
   (void)target;

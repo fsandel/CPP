@@ -11,7 +11,10 @@
 /* ************************************************************************** */
 
 #pragma once
-#include "../interface.h"
+
+#include <string>
+
+#include "../Materia/AMateria.hpp"
 
 class AMateria;
 

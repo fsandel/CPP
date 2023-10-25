@@ -10,17 +10,17 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "interface.h"
+// #include "interface.h"
 
 int main_in(void) {
-  ICharacter* me = new Character("Frank");
-  ICharacter* nother = new Character("Someone else");
-  AMateria* cure2 = new Cure();
-  cure2->clone();
-  me->equip(cure2);
-  me->use(0, *nother);
-  delete me;
-  delete nother;
+//   ICharacter* me = new Character("Frank");
+//   ICharacter* nother = new Character("Someone else");
+//   AMateria* cure2 = new Cure();
+//   cure2->clone();
+//   me->equip(cure2);
+//   me->use(0, *nother);
+//   delete me;
+//   delete nother;
   return (0);
 }
 

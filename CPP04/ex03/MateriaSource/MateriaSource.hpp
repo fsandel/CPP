@@ -16,8 +16,8 @@
 
 #include "IMateriaSource.hpp"
 
-// class IMateriaSource;
-// class AMateria;
+class IMateriaSource;
+class AMateria;
 
 class MateriaSource : public IMateriaSource {
  public:

@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../interface.h"
+#include "AMateria.hpp"
 
 AMateria::AMateria() {}
 

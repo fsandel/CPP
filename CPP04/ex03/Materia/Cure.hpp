@@ -13,6 +13,9 @@
 #pragma once
 
 #include "AMateria.hpp"
+#include "../Character/ICharacter.hpp"
+
+// class AMateria;
 
 class Cure : public AMateria {
  public:
