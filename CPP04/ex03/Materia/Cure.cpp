@@ -20,9 +20,13 @@ Cure& Cure::operator=(const Cure&) { return *this; }
 
 void* Cure::operator new(std::size_t size) {
   void* ptr = ::operator new(size);
-  FLOOR.addMateria(ptr);
-  std::cout << "my cure new" << std::endl;
+  FLOOR.addMateria((AMateria*)ptr);
   return ptr;
+}
+
+void Cure::operator delete(void* obj) {
+  FLOOR.deleteMateria((AMateria*)obj);
+  ::operator delete(obj);
 }
 
 Cure::Cure(const Cure& obj) { *this = obj; }

@@ -24,6 +24,7 @@ class Cure : public AMateria {
   Cure& operator=(const Cure& obj);
 
   void* operator new(std::size_t size);
+  void operator delete(void* ptr);
 
   AMateria* clone() const;
   void use(ICharacter& target);
