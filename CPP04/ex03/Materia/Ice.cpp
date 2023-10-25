@@ -12,7 +12,7 @@
 
 #include "Ice.hpp"
 
-Ice::Ice() {}
+Ice::Ice() { this->_type = "ice"; }
 
 Ice::Ice(Ice const& obj) { *this = obj; }
 
@@ -30,7 +30,6 @@ void Ice::operator delete(void* obj) {
   FLOOR.deleteMateria((AMateria*)obj);
   ::operator delete(obj);
 }
-
 
 AMateria* Ice::clone() const { return new Ice(*this); }
 

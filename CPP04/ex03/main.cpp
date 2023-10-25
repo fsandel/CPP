@@ -16,20 +16,29 @@
 #include "Materia/AMateria.hpp"
 #include "Materia/Cure.hpp"
 #include "Materia/Ice.hpp"
+#include "MateriaSource/IMateriaSource.hpp"
+#include "MateriaSource/MateriaSource.hpp"
 
-int main_in(void) {
-  ICharacter* me = new Character("Frank");
-  ICharacter* nother = new Character("Someone else");
-  AMateria* cure2 = new Cure();
-  cure2->clone();
-  me->equip(cure2);
-  me->use(0, *nother);
+int main_in() {
+  IMateriaSource* src = new MateriaSource();
+  src->learnMateria(new Ice());
+  src->learnMateria(new Cure());
+  ICharacter* me = new Character("me");
+  AMateria* tmp;
+  tmp = src->createMateria("ice");
+  me->equip(tmp);
+  tmp = src->createMateria("cure");
+  me->equip(tmp);
+  ICharacter* bob = new Character("bob");
+  me->use(0, *bob);
+  me->use(1, *bob);
+  delete bob;
   delete me;
-  delete nother;
-  return (0);
+  delete src;
+  return 0;
 }
 
 int main(void) {
   main_in();
-  // system("leaks a.out");
+  system("leaks a.out");
 }
