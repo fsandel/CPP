@@ -13,31 +13,17 @@
 #include "Character.hpp"
 
 Character::Character() {
-  int i = 0;
-  while (i < 4) this->slot[i++] = NULL;
+  for (int i = 0; i < 4; i++) this->slot[i] = 0;
 }
 
 Character::Character(std::string name) { this->_name = name; }
 
 Character::~Character() {
-  int i = 0;
-  while (i < 4) {
-    if (this->slot[i]) delete this->slot[i];
-    i++;
-  }
+  for (int i = 0; i < 4; i++) delete this->slot[i];
 }
 
 Character& Character::operator=(const Character& obj) {
-  int i = 0;
-  while (i < 4) {
-    if (this->slot[i]) delete this->slot[i];
-    i++;
-  }
-  i = 0;
-  while (i < 4) {
-    if (obj.slot[i]) this->slot[i] = obj.slot[i]->clone();
-    i++;
-  }
+      for (int i = 0; i < 4; i++) {delete this->slot[i]; if (this->slot[i]) this->slot[i] = obj.slot[i]->clone();};
   return (*this);
 }
 
@@ -46,10 +32,11 @@ Character::Character(Character const& obj) { *this = obj; }
 std::string const& Character::getName() const { return (this->_name); }
 
 void Character::equip(AMateria* m) {
+    if (!m) return ;
   int i = 0;
   while (i < 4) {
     if (!slot[i]) {
-      slot[i] = m;
+      slot[i] = m->clone();
       return;
     }
     i++;
@@ -65,6 +52,7 @@ void Character::unequip(int idx) {
     std::cout << "There is nothing equipped in slot " << idx << std::endl;
     return;
   }
+  delete slot[idx];
   this->slot[idx] = NULL;
   std::cout << "Successfully unequipped " << slot[idx]->getType() << std::endl;
 }

@@ -15,8 +15,8 @@ CC				=	c++
 RM				=	rm -f
 CPPFLAGS		=	-std=c++98 -Wall -Wextra -Werror
 
-SRC				=	main.cpp Materia/AMateria.cpp Character/ICharacter.cpp Materia/Cure.cpp Character/Character.cpp \
-					MateriaSource/IMateriaSource.cpp MateriaSource/MateriaSource.cpp
+SRC				=	main.cpp Materia/AMateria.cpp Materia/Cure.cpp Character/Character.cpp \
+					MateriaSource/MateriaSource.cpp
 
 OBJ				=	$(SRC:.cpp=.o)
 

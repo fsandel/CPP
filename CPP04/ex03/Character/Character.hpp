@@ -11,12 +11,11 @@
 /* ************************************************************************** */
 
 #pragma once
-// #include "../interface.h"
+
 #include <string>
 
-// #include "../Materia/AMateria.hpp"
-
 #include "ICharacter.hpp"
+
 class AMateria;
 class ICharacter;
 
@@ -34,4 +33,6 @@ class Character : public ICharacter {
   void use(int idx, ICharacter& target);
 
  private:
+ AMateria *slot[4];
+ std::string _name;
 };
