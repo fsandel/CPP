@@ -14,6 +14,8 @@
 
 AMateria::AMateria() { this->_type = "base"; }
 
+AMateria::AMateria(const AMateria& obj) { this->_type = obj._type; }
+
 AMateria::~AMateria() {}
 
 AMateria& AMateria::operator=(const AMateria&) { return *this; }

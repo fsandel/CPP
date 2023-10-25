@@ -20,6 +20,7 @@ class AMateria {
  public:
   AMateria();
   AMateria(std::string const& type);
+  AMateria(const AMateria& obj);
   virtual ~AMateria();
   AMateria& operator=(const AMateria& obj);
 
