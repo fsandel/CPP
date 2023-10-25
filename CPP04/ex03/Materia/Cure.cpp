@@ -25,11 +25,12 @@ void* Cure::operator new(std::size_t size) {
 }
 
 void Cure::operator delete(void* obj) {
+  if (!obj) return;
   FLOOR.deleteMateria((AMateria*)obj);
   ::operator delete(obj);
 }
 
-Cure::Cure(const Cure& obj) { *this = obj; }
+Cure::Cure(const Cure& obj) : AMateria(obj) { *this = obj; }
 
 AMateria* Cure::clone() const { return new Cure(*this); }
 

@@ -36,7 +36,6 @@ void MateriaSource::learnMateria(AMateria* materia) {
       this->_learned[i] = materia;
       return;
     }
-    // std::cout << "learning" << std::endl;
     i++;
   }
   std::cout << "can't learn another Materia" << std::endl;
@@ -45,7 +44,6 @@ void MateriaSource::learnMateria(AMateria* materia) {
 AMateria* MateriaSource::createMateria(std::string const& type) {
   int i = 0;
   while (i < 4) {
-    // std::cout << "checking" << std::endl;
     if (this->_learned[i])
       std::cout << this->_learned[i]->getType() << std::endl;
     if (this->_learned[i] && this->_learned[i]->getType() == type)

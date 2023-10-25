@@ -14,7 +14,7 @@
 
 Ice::Ice() { this->_type = "ice"; }
 
-Ice::Ice(Ice const& obj) { *this = obj; }
+Ice::Ice(Ice const& obj) : AMateria(obj) { *this = obj; }
 
 Ice::~Ice() {}
 
@@ -27,6 +27,8 @@ void* Ice::operator new(std::size_t size) {
 }
 
 void Ice::operator delete(void* obj) {
+  if (!obj) return;
+  std::cout << "custom delete" << std::endl;
   FLOOR.deleteMateria((AMateria*)obj);
   ::operator delete(obj);
 }

@@ -15,6 +15,7 @@ class Floor {
 
  private:
   t_list* materia_list;
+  int counter;
 };
 
 extern Floor FLOOR;
