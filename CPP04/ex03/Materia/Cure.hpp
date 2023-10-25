@@ -13,6 +13,7 @@
 #pragma once
 
 #include "../Character/ICharacter.hpp"
+#include "../Floor/Floor.hpp"
 #include "AMateria.hpp"
 
 class Cure : public AMateria {
@@ -21,6 +22,8 @@ class Cure : public AMateria {
   Cure(const Cure& obj);
   ~Cure();
   Cure& operator=(const Cure& obj);
+
+  void* operator new(std::size_t size);
 
   AMateria* clone() const;
   void use(ICharacter& target);

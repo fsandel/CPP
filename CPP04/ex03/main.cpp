@@ -12,6 +12,7 @@
 
 #include "Character/Character.hpp"
 #include "Character/ICharacter.hpp"
+#include "Floor/Floor.hpp"
 #include "Materia/AMateria.hpp"
 #include "Materia/Cure.hpp"
 #include "Materia/Ice.hpp"

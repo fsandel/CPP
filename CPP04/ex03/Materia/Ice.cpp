@@ -20,7 +20,12 @@ Ice::~Ice() {}
 
 Ice& Ice::operator=(const Ice&) { return *this; }
 
-void* Ice::operator new(std::size_t size) { return nullptr; }
+void* Ice::operator new(std::size_t size) {
+  void* ptr = ::operator new(size);
+  FLOOR.addMateria(ptr);
+  std::cout << "my ice new" << std::endl;
+  return ptr;
+}
 
 AMateria* Ice::clone() const { return new Ice(*this); }
 

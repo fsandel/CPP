@@ -13,6 +13,7 @@
 #pragma once
 
 #include "../Character/ICharacter.hpp"
+#include "../Floor/Floor.hpp"
 #include "AMateria.hpp"
 
 class Ice : public AMateria {

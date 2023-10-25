@@ -18,6 +18,13 @@ Cure::~Cure() {}
 
 Cure& Cure::operator=(const Cure&) { return *this; }
 
+void* Cure::operator new(std::size_t size) {
+  void* ptr = ::operator new(size);
+  FLOOR.addMateria(ptr);
+  std::cout << "my cure new" << std::endl;
+  return ptr;
+}
+
 Cure::Cure(const Cure& obj) { *this = obj; }
 
 AMateria* Cure::clone() const { return new Cure(*this); }
