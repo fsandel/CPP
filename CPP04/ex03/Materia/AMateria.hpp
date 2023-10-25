@@ -11,8 +11,8 @@
 /* ************************************************************************** */
 
 #pragma once
-#include <string>
 #include <iostream>
+#include <string>
 
 class ICharacter;
 
@@ -31,7 +31,6 @@ class AMateria {
  protected:
   std::string _type;
 };
-
 
 // class AMateria2
 // {

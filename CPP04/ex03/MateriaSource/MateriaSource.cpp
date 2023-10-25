@@ -20,8 +20,7 @@ MateriaSource::MateriaSource() {
 MateriaSource::~MateriaSource() {}
 
 MateriaSource& MateriaSource::operator=(const MateriaSource& obj) {
-  // add rule for copy assignment constructor
-  (void)obj;
+    for (int i = 0; i < 4; i++) { delete this->_learned[i]; this->_learned[i] = obj._learned[i]->clone();}
   return (*this);
 }
 
@@ -46,6 +45,6 @@ AMateria* MateriaSource::createMateria(std::string const& type) {
       return (this->_learned[i]->clone());
     i++;
   }
-  (void)type;
+  std::cout << "Materia is not known" << std::endl;
   return (NULL);
 }

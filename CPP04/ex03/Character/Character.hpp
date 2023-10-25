@@ -33,6 +33,6 @@ class Character : public ICharacter {
   void use(int idx, ICharacter& target);
 
  private:
- AMateria *slot[4];
- std::string _name;
+  AMateria* slot[4];
+  std::string _name;
 };

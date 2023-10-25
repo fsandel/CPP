@@ -31,5 +31,4 @@ class MateriaSource : public IMateriaSource {
 
  private:
   AMateria* _learned[4];
-
 };

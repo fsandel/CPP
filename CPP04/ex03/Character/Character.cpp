@@ -23,7 +23,10 @@ Character::~Character() {
 }
 
 Character& Character::operator=(const Character& obj) {
-      for (int i = 0; i < 4; i++) {delete this->slot[i]; if (this->slot[i]) this->slot[i] = obj.slot[i]->clone();};
+  for (int i = 0; i < 4; i++) {
+    delete this->slot[i];
+    if (this->slot[i]) this->slot[i] = obj.slot[i]->clone();
+  };
   return (*this);
 }
 
@@ -32,19 +35,13 @@ Character::Character(Character const& obj) { *this = obj; }
 std::string const& Character::getName() const { return (this->_name); }
 
 void Character::equip(AMateria* m) {
-    if (!m) return ;
-  int i = 0;
-  while (i < 4) {
-    if (!slot[i]) {
-      slot[i] = m->clone();
-      return;
-    }
-    i++;
-  }
+  if (!m) return;
+  for (int i = 0; i < 4; i++)
+    if (!slot[i]) return (slot[i] = m->clone(), void(0));
 }
 
 void Character::unequip(int idx) {
-  if (idx > 3 || idx < 0) {
+  if (idx >= 4 || idx < 0) {
     std::cout << "Index is out of range" << std::endl;
     return;
   }

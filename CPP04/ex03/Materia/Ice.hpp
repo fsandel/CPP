@@ -11,13 +11,12 @@
 /* ************************************************************************** */
 
 #pragma once
-#include "AMateria.hpp"
-
 #include "../Character/ICharacter.hpp"
+#include "AMateria.hpp"
 
 class AMateria;
 
-class Ice: public AMateria {
+class Ice : public AMateria {
  public:
   Ice();
   ~Ice();
