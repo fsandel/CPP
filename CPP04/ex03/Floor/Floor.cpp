@@ -24,9 +24,7 @@ void Floor::deleteMateria(AMateria* materia) {
   t_list* copy = this->materia_list;
   while (copy) {
     if (copy->content == materia) {
-      ::operator delete(copy->content);
       copy->content = NULL;
-
       return;
     }
     copy = copy->next;

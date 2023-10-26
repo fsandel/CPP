@@ -22,13 +22,14 @@ Ice& Ice::operator=(const Ice&) { return *this; }
 
 void* Ice::operator new(std::size_t size) {
   void* ptr = ::operator new(size);
-  if (ptr) FLOOR.addMateria((AMateria*)ptr);
+  if (ptr && size) FLOOR.addMateria((AMateria*)ptr);
   return ptr;
 }
 
 void Ice::operator delete(void* obj) {
   if (!obj) return;
   FLOOR.deleteMateria((AMateria*)obj);
+  ::operator delete(obj);
 }
 
 AMateria* Ice::clone() const { return new Ice(*this); }
