@@ -21,7 +21,6 @@ Ice::~Ice() {}
 Ice& Ice::operator=(const Ice&) { return *this; }
 
 void* Ice::operator new(std::size_t size) {
-  std::cout << "newice" << std::endl;
   void* ptr = ::operator new(size);
   if (ptr) FLOOR.addMateria((AMateria*)ptr);
   return ptr;
@@ -29,7 +28,6 @@ void* Ice::operator new(std::size_t size) {
 
 void Ice::operator delete(void* obj) {
   if (!obj) return;
-  std::cout << "icedelete" << std::endl;
   FLOOR.deleteMateria((AMateria*)obj);
 }
 

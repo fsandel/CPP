@@ -12,13 +12,17 @@
 
 #include "Character.hpp"
 
-Character::Character() {
+Character::Character() : _name("noname") {
   for (int i = 0; i < 4; i++) {
     this->slot[i] = NULL;
   }
 }
 
-Character::Character(std::string name) : _name(name) {}
+Character::Character(std::string name) : _name(name) {
+  for (int i = 0; i < 4; i++) {
+    this->slot[i] = NULL;
+  }
+}
 
 Character::~Character() {
   for (int i = 0; i < 4; i++)
@@ -28,8 +32,8 @@ Character::~Character() {
 Character& Character::operator=(const Character& obj) {
   this->_name = obj._name;
   for (int i = 0; i < 4; ++i) {
-    if (this->slot[i]) {
-      //   delete this->slot[i];
+    if (this->slot[i] != NULL) {
+      delete this->slot[i];
       this->slot[i] = NULL;
     }
     if (obj.slot[i]) {
