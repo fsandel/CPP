@@ -13,16 +13,21 @@
 #include "MateriaSource.hpp"
 
 MateriaSource::MateriaSource() {
-  int i = 0;
-  while (i < 4) this->_learned[i++] = NULL;
+  for (int i = 0; i < 4; i++) this->_learned[i] = NULL;
 }
 
-MateriaSource::~MateriaSource() {}
+MateriaSource::~MateriaSource() {
+  for (int i = 0; i < 4; i++)
+    if (this->_learned[i]) delete this->_learned[i];
+}
 
 MateriaSource& MateriaSource::operator=(const MateriaSource& obj) {
   for (int i = 0; i < 4; i++) {
-    delete this->_learned[i];
-    this->_learned[i] = obj._learned[i]->clone();
+    if (this->_learned[i]) delete this->_learned[i];
+    if (obj._learned[i])
+      this->_learned[i] = obj._learned[i]->clone();
+    else
+      this->_learned[i] = NULL;
   }
   return (*this);
 }
@@ -30,23 +35,19 @@ MateriaSource& MateriaSource::operator=(const MateriaSource& obj) {
 MateriaSource::MateriaSource(MateriaSource const& obj) { *this = obj; }
 
 void MateriaSource::learnMateria(AMateria* materia) {
-  int i = 0;
-  while (i < 4) {
+  for (int i = 0; i < 4; i++) {
     if (!this->_learned[i]) {
       this->_learned[i] = materia;
       return;
     }
-    i++;
+    std::cout << "can't learn another Materia" << std::endl;
   }
-  std::cout << "can't learn another Materia" << std::endl;
 }
 
 AMateria* MateriaSource::createMateria(std::string const& type) {
-  int i = 0;
-  while (i < 4) {
+  for (int i = 0; i < 4; i++) {
     if (this->_learned[i] && this->_learned[i]->getType() == type)
       return (this->_learned[i]->clone());
-    i++;
   }
   std::cout << "Materia is not known" << std::endl;
   return (NULL);
