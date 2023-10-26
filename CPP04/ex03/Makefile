@@ -23,9 +23,6 @@ SRC				=	main.cpp \
 
 OBJ				=	$(SRC:.cpp=.o)
 
-test:				all clean
-					./$(NAME)
-
 all:				$(NAME)
 				
 $(NAME):			$(OBJ)

@@ -16,7 +16,7 @@
 #include "animal.h"
 
 int main() {
-  // Animal animal;
+  //   Animal animal;
 
   Dog dog;
   dog.makeSound();
